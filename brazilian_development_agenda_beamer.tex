@@ -7,6 +7,7 @@
 \usepackage{booktabs,array,tabularx}
 \usepackage{graphicx}
 \usepackage{tikz}
+\usepackage{appendixnumberbeamer}
 \usetikzlibrary{arrows.meta,calc,fit,positioning,shapes.geometric}
 
 % -----------------------------------------------------------------------------
@@ -48,7 +49,7 @@
   \leavevmode%
   \hbox{%
     \begin{beamercolorbox}[wd=.78\paperwidth,ht=2.5ex,dp=1.1ex,leftskip=.45cm]{author in head/foot}%
-      \color{MidGray}The Brazilian Agenda of Economic Development
+      \color{MidGray}Brazil's Economic Development Agenda
     \end{beamercolorbox}%
     \begin{beamercolorbox}[wd=.22\paperwidth,ht=2.5ex,dp=1.1ex,rightskip=.45cm plus1fil]{date in head/foot}%
       \hfill\color{MidGray}\insertframenumber/\inserttotalframenumber
@@ -83,7 +84,7 @@
     \end{tikzpicture}
   \end{frame}}
 
-\title{The Brazilian Agenda of\\Economic Development}
+\title{Brazil's Economic\\Development Agenda}
 \subtitle{Macroeconomic stability, productivity, state capacity, and inclusion}
 \author{Eduardo Peres Cunha}
 \institute{PUC-Rio -- Brazilian Seminars}
@@ -91,7 +92,11 @@
 
 \begin{document}
 
-% 01
+% =============================================================================
+% Opening and orientation
+% =============================================================================
+
+% Title
 \begin{frame}[plain]
   \begin{tikzpicture}[remember picture,overlay]
     \fill[DeepNavy] (current page.south west) rectangle (current page.north east);
@@ -108,14 +113,43 @@
     \node[anchor=west,text=white,font=\normalsize]
       at ([xshift=.25\paperwidth,yshift=-.22\paperheight]current page.west)
       {\insertauthor\quad | \quad\insertinstitute\quad | \quad\insertdate};
+    \node[anchor=west,text=Sky,font=\scriptsize]
+      at ([xshift=.25\paperwidth,yshift=-.30\paperheight]current page.west)
+      {Data cutoff: July 2026};
   \end{tikzpicture}
 \end{frame}
 % Olá Eduardo
-% 02
+
+% Hook: Pix
+\begin{frame}{You have probably already used today's puzzle}
+  \begin{columns}[T,onlytextwidth]
+    \column{.44\textwidth}
+      \begin{center}
+        {\fontsize{32}{36}\selectfont\color{DeepNavy}\textbf{170m+}}\\[-.1cm]
+        \muted{individual Pix users}
+        \vspace{.55cm}
+
+        {\fontsize{32}{36}\selectfont\color{BrazilGreen}\textbf{7bn+}}\\[-.1cm]
+        \muted{transactions in January 2026}
+      \end{center}
+    \column{.52\textwidth}
+      \begin{itemize}
+        \item If you bought a coffee in Rio this month, you probably saw Pix: free, instant payments built by the central bank in 2020.
+        \item The same country still struggles to deliver sewage connections, basic mathematics learning, and safe streets.
+      \end{itemize}
+      \vspace{.25cm}
+      \begin{beamercolorbox}[rounded=true,sep=.6em,wd=\textwidth]{exampleblock body}
+        \key{Today's theme in one contrast:} Brazil builds frontier institutions --- and struggles to spread their benefits.
+      \end{beamercolorbox}
+  \end{columns}
+  \source{BCB, \href{https://www.bcb.gov.br/estabilidadefinanceira/estatisticaspix}{Pix Statistics}; figures reported in early 2026.}
+\end{frame}
+
+% Puzzle
 \begin{frame}{The lecture starts from one puzzle}
-  \vspace{0.7cm}
-  \question{Why has a large, urban, resource-rich economy with strong institutions in selected areas failed to achieve sustained income convergence?}
-  \vspace{0.8cm}
+  \vspace{0.5cm}
+  \question{Why has a large, urban, resource-rich economy with strong institutions in selected areas failed to achieve sustained income convergence --- that is, to keep catching up with rich-country income per person?}
+  \vspace{0.6cm}
   \begin{columns}[T,onlytextwidth]
     \column{.31\textwidth}
       \begin{block}{Past achievement}
@@ -130,36 +164,83 @@
         Low aggregate productivity and persistent inequality.
       \end{block}
   \end{columns}
+  \vspace{.3cm}
+  \muted{\small We return to this question at the end of every block --- and answer it in the final slide.}
 \end{frame}
 
-% 03
-\begin{frame}{Brazil combines frontier capabilities with large deficits}
+% Convergence chart (new)
+\begin{frame}{Relative to U.S. income, Brazil is where it was in 1960}
+  \datagraphic{fig_convergence.pdf}
+  \begin{itemize}
+    \item Brazil converged fast until 1980, diverged during the debt-crisis decade, and has fluctuated around 14--17\% since.
+    \item This is the fact the whole lecture tries to explain --- not any single recession.
+  \end{itemize}
+  \source{World Bank, World Development Indicators, GDP per capita in constant 2015 US\$ (NY.GDP.PCAP.KD), 1960--2025.}
+\end{frame}
+
+% Map (new)
+\begin{frame}{One country, five very different economies}
   \begin{columns}[T,onlytextwidth]
-    \column{.49\textwidth}
-      \begin{beamercolorbox}[rounded=true,sep=.7em,wd=\textwidth]{block body}
-        \key{Continental scale}\par
-        More than 200 million people and 5,500 municipalities.
-      \end{beamercolorbox}
-      \vspace{.35cm}
-      \begin{beamercolorbox}[rounded=true,sep=.7em,wd=\textwidth]{exampleblock body}
-        \key{Clean electricity}\par
-        86.6\% of domestic electricity supply was renewable in 2025.
-      \end{beamercolorbox}
-    \column{.49\textwidth}
-      \begin{beamercolorbox}[rounded=true,sep=.7em,wd=\textwidth]{exampleblock body}
-        \key{Institutional innovation}\par
-        Pix scaled digital public infrastructure to most adults.
-      \end{beamercolorbox}
-      \vspace{.35cm}
-      \begin{beamercolorbox}[rounded=true,sep=.7em,wd=\textwidth]{block body}
-        \warn{Persistent duality}\par
-        38.1\% of workers remained informal in 2025.
-      \end{beamercolorbox}
+    \column{.58\textwidth}
+      \begin{center}
+      \resizebox{.97\linewidth}{!}{%
+      \begin{tikzpicture}[
+        region/.style={rounded corners=7pt,align=center,font=\scriptsize,draw=BrazilGreen!60,thick}]
+        \node[region,fill=Sky,minimum width=4.6cm,minimum height=2.5cm] at (2.1,4.2)
+          {\textbf{North}\\Amazon basin\\8\% pop $\cdot$ 6\% GDP};
+        \node[region,fill=Sky,minimum width=3.0cm,minimum height=2.0cm] at (6.35,4.45)
+          {\textbf{Northeast}\\27\% pop $\cdot$ 14\% GDP};
+        \node[region,fill=Sky,minimum width=3.2cm,minimum height=1.9cm] at (3.4,1.85)
+          {\textbf{Center-West}\\Cerrado agriculture\\8\% pop $\cdot$ 10\% GDP};
+        \node[region,fill=WarmGold!35,draw=WarmGold,minimum width=2.8cm,minimum height=1.7cm] at (6.5,1.7)
+          {\textbf{Southeast}\\42\% pop $\cdot$ 52\% GDP};
+        \node[region,fill=Sky,minimum width=2.1cm,minimum height=1.4cm] at (5.2,-0.25)
+          {\textbf{South}\\15\% pop $\cdot$ 17\% GDP};
+        \fill[Brick] (7.95,1.35) circle (2.6pt);
+        \node[font=\tiny,anchor=west,text=Brick] at (8.1,1.35) {Rio de Janeiro (we are here)};
+        \node[font=\tiny,text=MidGray] at (4.3,-1.35) {Schematic: positions indicative, areas not to scale.};
+      \end{tikzpicture}}
+      \end{center}
+    \column{.40\textwidth}
+      \begin{itemize}
+        \item Population and output concentrate near the coast; the Southeast alone produces about half of GDP.
+        \item The Northeast holds 27\% of the people and 14\% of the output --- the largest regional income gap.
+        \item The Amazon and the Cerrado make land use, agriculture, and climate part of the growth agenda.
+        \item Keep this map in mind: the binding constraint differs by place.
+      \end{itemize}
   \end{columns}
-  \source{World Bank, Brazil Overview; EPE, BEN 2026; BCB, Pix statistics; IBGE, PNAD Continua 2025.}
+  \source{IBGE, 2022 Population Census and Regional Accounts 2021; shares rounded.}
 \end{frame}
 
-% 05
+% Timeline (new)
+\begin{frame}{Six moments explain Brazil's starting point}
+  \begin{center}
+  \resizebox{.97\textwidth}{!}{%
+  \begin{tikzpicture}[x=1cm,y=1cm,
+    ev/.style={rounded corners,align=center,font=\scriptsize,text width=2.35cm,inner sep=4pt}]
+    \draw[very thick,MidGray] (0.4,0) -- (14.6,0);
+    \foreach \x in {1.5,4.0,6.2,8.4,10.6,13.2}{\fill[BrazilGreen] (\x,0) circle (2.6pt);}
+    \node[ev,fill=Sky,above=.35cm] at (1.5,0)
+      {\textbf{1930s--1980}\\State-led industrialization; Brazil urbanizes and grows among the fastest worldwide};
+    \node[ev,fill=WarmGray,below=.35cm] at (4.0,0)
+      {\textbf{1980s}\\Debt crisis and near-hyperinflation: the ``lost decade''};
+    \node[ev,fill=Sky,above=.35cm] at (6.2,0)
+      {\textbf{1988}\\New Constitution: rights, social spending, and a three-level federation};
+    \node[ev,fill=WarmGray,below=.35cm] at (8.4,0)
+      {\textbf{1994}\\Real Plan ends chronic high inflation};
+    \node[ev,fill=Sky,above=.35cm] at (10.6,0)
+      {\textbf{1999}\\Floating exchange rate and inflation targeting; fiscal rules follow};
+    \node[ev,fill=WarmGray,below=.35cm] at (13.2,0)
+      {\textbf{2003--today}\\Commodity boom and social gains; 2014--16 recession; pandemic; recent reforms};
+  \end{tikzpicture}}
+  \end{center}
+  \vspace{.2cm}
+  \begin{itemize}
+    \item The lecture concentrates on the period after 1994, but the achievements and scars of this longer history set the stage.
+  \end{itemize}
+\end{frame}
+
+% Development broader than GDP
 \begin{frame}{Development is broader than current GDP growth}
   \begin{columns}[T,onlytextwidth]
     \column{.24\textwidth}\begin{block}{Income}\centering Income per person\end{block}
@@ -169,9 +250,12 @@
   \end{columns}
   \vspace{.35cm}
   \[
-    \frac{Y}{N}=\underbrace{\frac{Y}{L}}_{\text{output per worker}}
+    \underbrace{\frac{Y}{N}}_{\substack{\text{income}\\\text{per person}}}
+    =\underbrace{\frac{Y}{L}}_{\substack{\text{output}\\\text{per worker}}}
     \times
-    \underbrace{\frac{L}{N}}_{\text{workers per person}}
+    \underbrace{\frac{L}{N}}_{\substack{\text{workers}\\\text{per person}}}
+    \qquad
+    \muted{\text{\small $Y$ = total income, $L$ = workers, $N$ = population}}
   \]
   \begin{itemize}
     \item Productivity determines how much each worker produces.
@@ -180,37 +264,55 @@
   \end{itemize}
 \end{frame}
 
-% 06
-\begin{frame}{Roadmap for 150 minutes}
+% Glossary (new)
+\begin{frame}{Six terms you will hear all afternoon}
   \small
-  \begin{tabularx}{\textwidth}{>{\bfseries}p{1.8cm}p{3.3cm}X}
+  \begin{tabularx}{\textwidth}{>{\bfseries}p{3.6cm}X}
     \toprule
-    Time & Block & Main question \\
-    \midrule
-    0--12 min & The puzzle & What counts as development? \\
-    12--65 min & Macro foundations & How do inflation, fiscal policy, and exchange rates shape growth? \\
-    65--75 min & Exchange-rate case & What changed in 1999, and why does the regime matter? \\
-    75--85 min & Break &  \\
-    85--135 min & Micro constraints & Firms, workers, infrastructure, security, and state capacity \\
-    135--147 min & Integrated agenda & Which reforms are complements? \\
-    147--150 min & Questions & Which constraint changes the rest of the agenda? \\
+    Income convergence & A poorer country grows faster than rich ones and closes the gap in income per person. \\
+    Nominal anchor & The variable a central bank commits to (an exchange rate, an inflation target) so that everyone's prices and wages can coordinate on it. \\
+    Pass-through & How much of a currency depreciation ends up in consumer prices. \\
+    Primary balance & Government revenue minus spending, \emph{excluding} interest payments. \\
+    Reallocation & Workers and capital moving from less productive firms to more productive ones. \\
+    Contestability & Markets where new firms can credibly enter and challenge incumbents. \\
     \bottomrule
   \end{tabularx}
+  \vspace{.25cm}
+
+  \muted{\small Everything else --- URV, CBS/IBS, Selic --- is defined when it appears.}
 \end{frame}
 
-% 07
-\sectionframe{Part I -- Making growth possible}{Macroeconomic stability, exchange-rate regimes, fiscal space, and investment}
+% Roadmap
+\begin{frame}{Roadmap for 150 minutes}
+  \begin{tabularx}{\textwidth}{>{\bfseries}p{2.2cm}X}
+    \toprule
+    0--20 min & \textbf{Orientation} --- the puzzle, the map, the timeline \\
+    20--65 min & \textbf{Part I: Making growth possible} --- inflation, the 1999 regime change, fiscal policy, investment \\
+    65--75 min & Break \\
+    75--125 min & \textbf{Part II: Making growth happen} --- firms, workers, infrastructure, and a security case study \\
+    125--140 min & \textbf{Part III: The integrated agenda} --- constraints, political economy, and the R\$100 exercise \\
+    140--150 min & \textbf{Questions and discussion} \\
+    \bottomrule
+  \end{tabularx}
+  \vspace{.3cm}
 
-\begin{frame}{Growth has been volatile and convergence has been intermittent}
+  \muted{\small Backup slides with formulas, full tables, and measurement details are in the appendix.}
+\end{frame}
+
+% =============================================================================
+% Part I - Making growth possible
+% =============================================================================
+\sectionframe{Part I -- Making growth possible}{Macroeconomic stability, the 1999 regime change, fiscal space, and investment}
+
+\begin{frame}{Growth has been volatile since stabilization}
   \datagraphic{fig_real_gdp_growth.pdf}
   \begin{itemize}
-    \item Brazil combined strong expansions with three recessions after 1995.
-    \item The post-2010 problem is not one crisis alone: average growth weakened before the pandemic.
+    \item Brazil combined strong expansions with three recessions after 1995; average growth weakened before the pandemic.
+    \item This volatility explains \emph{why} the convergence line you saw never trends upward for long.
   \end{itemize}
-  \source{BCB SGS 7326, based on IBGE National Accounts. Annual real GDP growth; 2025 is the latest observation.}
+  \source{BCB SGS 7326, based on IBGE National Accounts. Annual real GDP growth; 2025 is the latest observation. Hatched bars mark contractions.}
 \end{frame}
 
-% 08
 \begin{frame}{High inflation disrupts more than purchasing power}
   \datagraphic{fig_ipca_12m.pdf}
   \begin{itemize}
@@ -220,7 +322,6 @@
   \source{BCB SGS 433, monthly IPCA. Twelve-month rates are compounded from the official monthly series.}
 \end{frame}
 
-% 09
 \begin{frame}{The Real Plan changed the unit of account before the currency}
   \begin{center}
   \begin{tikzpicture}[node distance=.7cm,
@@ -233,11 +334,13 @@
     \draw[-{Latex[length=2.5mm]},very thick,BrazilGreen] (urv) -- (real);
   \end{tikzpicture}
   \end{center}
-  \vspace{.6cm}
+  \vspace{.35cm}
+  \begin{beamercolorbox}[rounded=true,sep=.6em,wd=\textwidth]{exampleblock body}
+    \key{Concrete example:} a store listed rice at \textbf{URV 5} for months while the price tag in cruzeiros reais changed almost daily with the URV's dollar-linked value. On July 1, 1994, ``URV 5'' simply became \textbf{R\$5}.
+  \end{beamercolorbox}
+  \vspace{.3cm}
   \begin{itemize}
-    \item The URV coordinated prices without an overnight freeze.
-    \item Its value was linked to the U.S. dollar during the transition.
-    \item The exchange rate then became part of the nominal anchor.
+    \item The URV coordinated prices and expectations without an overnight freeze --- an institutional solution, not just a new banknote.
   \end{itemize}
   \source{BCB, \href{https://www.bcb.gov.br/en/monetarypolicy/realplan}{The Real Plan}.}
 \end{frame}
@@ -251,7 +354,6 @@
   \source{BCB SGS 433, monthly IPCA. Rates are compounded over twelve months. The two panels use different vertical scales.}
 \end{frame}
 
-% 10
 \begin{frame}{The exchange rate links the macroeconomy to development}
   \begin{center}
   \begin{tikzpicture}[scale=.88,every node/.style={transform shape},node distance=.75cm and .9cm,
@@ -273,8 +375,37 @@
   \question{An exchange-rate regime allocates adjustment across the currency, interest rates, reserves, and domestic demand.}
 \end{frame}
 
-% 11
-\begin{frame}{Brazil moved from managed adjustment to a formal float}
+\begin{frame}{The policy trilemma: Brazil moved corners in 1999}
+  \begin{columns}[T,onlytextwidth]
+    \column{.46\textwidth}
+      \begin{center}
+      \resizebox{.95\linewidth}{!}{%
+      \begin{tikzpicture}
+        \coordinate (A) at (0,3.5);
+        \coordinate (B) at (-2.7,-.6);
+        \coordinate (C) at (2.7,-.6);
+        \draw[very thick,DeepNavy] (A)--(B)--(C)--cycle;
+        \node[above,align=center,font=\small\bfseries] at (A) {Stable exchange rate};
+        \node[below,align=center,font=\small\bfseries,text width=2.8cm] at (B) {Independent monetary policy};
+        \node[below,align=center,font=\small\bfseries,text width=2.3cm] at (C) {Capital mobility};
+        \fill[WarmGold] ($(A)!0.5!(C)$) circle (3.2pt);
+        \node[right=2pt,font=\scriptsize\bfseries,text=WarmGold!70!black] at ($(A)!0.5!(C)$) {1995--98};
+        \fill[BrazilGreen] ($(B)!0.5!(C)$) circle (3.2pt);
+        \node[below=3pt,font=\scriptsize\bfseries,text=BrazilGreen] at ($(B)!0.5!(C)$) {since 1999};
+      \end{tikzpicture}
+      }
+      \end{center}
+    \column{.51\textwidth}
+      \begin{itemize}
+        \item A country can fully pursue only two corners at once.
+        \item \textbf{1995--98:} a quasi-stable exchange rate with open capital markets --- so interest rates had to defend the currency.
+        \item \textbf{Since 1999:} monetary policy targets inflation and the currency floats.
+        \item Capital-flow measures change the constraint but do not remove it.
+      \end{itemize}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{1994--1999: the exchange rate served as the nominal anchor}
   \centering
   \resizebox{.96\textwidth}{!}{%
   \begin{tikzpicture}[x=1cm,y=1cm]
@@ -299,102 +430,17 @@
   \vspace{.25cm}
   \begin{minipage}{.96\textwidth}
   \begin{itemize}
-    \item Historical labels summarize changing rules and multiple market segments.
-    \item The operational regime can differ from a simple fixed-versus-floating label.
+    \item \key{Why it helped:} a stable currency price disciplined tradable-goods prices and coordinated expectations after hyperinflation.
+    \item \warn{Why pressure accumulated:} domestic inflation exceeded foreign inflation, the real appreciated, and high interest rates defended the corridor.
+    \item External shocks (Asia 1997, Russia 1998) repeatedly tested reserve and interest-rate defenses.
   \end{itemize}
   \end{minipage}
   \source{BCB, 1999 FX Market Analysis and official FX-policy pages; dates before 1994 are a schematic summary.}
 \end{frame}
 
-\begin{frame}{The exchange rate adjusted after the 1999 regime change}
-  \datagraphic{fig_brl_usd.pdf}
-  \begin{itemize}
-    \item The band limited adjustment before 1999; the float then absorbed domestic and external shocks.
-    \item A weaker real is not a development policy by itself: relative prices, balance sheets, and persistence matter.
-  \end{itemize}
-  \source{BCB SGS 3692. BRL per US dollar, selling rate at year-end; shaded period marks the explicit-band era.}
-\end{frame}
-
-% 12
-\begin{frame}{The policy trilemma makes the trade-off explicit}
-  \begin{columns}[T,onlytextwidth]
-    \column{.43\textwidth}
-      \begin{center}
-      \resizebox{.92\linewidth}{!}{%
-      \begin{tikzpicture}
-        \coordinate (A) at (0,3.5);
-        \coordinate (B) at (-2.7,-.6);
-        \coordinate (C) at (2.7,-.6);
-        \draw[very thick,DeepNavy] (A)--(B)--(C)--cycle;
-        \node[above,align=center,font=\small\bfseries] at (A) {Stable exchange rate};
-        \node[below,align=center,font=\small\bfseries,text width=2.8cm] at (B) {Independent monetary policy};
-        \node[below,align=center,font=\small\bfseries,text width=2.3cm] at (C) {Capital mobility};
-        \node[circle,fill=WarmGold,minimum size=.65cm] at (0,.65) {?};
-      \end{tikzpicture}
-      }
-      \end{center}
-    \column{.54\textwidth}
-      \begin{itemize}
-        \item A country can fully pursue only two corners at once.
-        \item Under an exchange-rate anchor, interest rates defend the parity.
-        \item Under a float, the currency absorbs part of external shocks.
-        \item Capital-flow measures change the constraint but do not remove it.
-      \end{itemize}
-  \end{columns}
-\end{frame}
-
-% 13
-\begin{frame}{The Real used the exchange rate as a nominal anchor}
-  \begin{columns}[T,onlytextwidth]
-    \column{.49\textwidth}
-      \begin{block}{Why it helped}
-        A stable currency price disciplined tradable-goods prices and coordinated expectations after hyperinflation.
-      \end{block}
-      \vspace{.25cm}
-      \begin{exampleblock}{Why pressure accumulated}
-        Domestic inflation exceeded foreign inflation, the real appreciated, and high interest rates attracted capital while defending the regime.
-      \end{exampleblock}
-    \column{.47\textwidth}
-      \begin{itemize}
-        \item July--September 1994 first allowed the real to appreciate below BRL 1 per USD.
-        \item September introduced a one-sided BRL 1 per USD dollar-sale ceiling, not a fixed parity.
-        \item Explicit symmetric bands began in March 1995.
-        \item The currency depreciated gradually inside a managed corridor.
-        \item External shocks tested reserve and interest-rate defenses.
-      \end{itemize}
-  \end{columns}
-  \source{BCB, FX Market Analysis, 1999 Q1.}
-\end{frame}
-
-% 14
-\begin{frame}{A crawling band trades flexibility for credibility}
-  \begin{center}
-  \resizebox{.88\textwidth}{!}{%
-  \begin{tikzpicture}[x=1cm,y=1cm]
-    \draw[->,thick,MidGray] (.4,.5) -- (13.8,.5) node[right,font=\scriptsize]{time};
-    \draw[->,thick,MidGray] (.4,.5) -- (.4,4.6) node[above,font=\scriptsize]{BRL per USD};
-    \fill[WarmGold!18] (.8,1.0) -- (13.2,3.1) -- (13.2,3.8) -- (.8,1.7) -- cycle;
-    \draw[very thick,Brick,dashed] (.8,1.7) -- (13.2,3.8);
-    \draw[very thick,BrazilGreen,dashed] (.8,1.0) -- (13.2,3.1);
-    \draw[very thick,DeepNavy] plot[smooth] coordinates
-      {(.8,1.3)(2.2,1.55)(3.8,1.7)(5.3,2.0)(7.0,2.18)(8.6,2.58)(10.1,2.72)(11.5,3.08)(13.2,3.45)};
-    \node[font=\scriptsize,text=Brick] at (11.9,4.05) {ceiling};
-    \node[font=\scriptsize,text=BrazilGreen] at (12.0,2.92) {floor};
-    \node[font=\scriptsize,text=DeepNavy,fill=white,inner sep=1.5pt] at (8.2,2.33) {market rate};
-    \node[align=center,font=\scriptsize,text=DeepNavy] at (5.4,4.05)
-      {the corridor shifts over time};
-  \end{tikzpicture}
-  }
-  \end{center}
-  \begin{itemize}
-    \item The market rate fluctuates inside the corridor while the authorities move its boundaries over time.
-    \item A narrow corridor can strengthen the anchor but invites one-way bets when fundamentals diverge.
-  \end{itemize}
-  \source{Stylized diagram; BCB, 1999 Q1 FX Market Analysis.}
-\end{frame}
-
-% 15
-\begin{frame}{January 1999 compressed a regime change into five days}
+\begin{frame}{Decision point: January 1999}
+  \question{It is January 12, 1999. Reserves are falling fast. You run the central bank. Do you raise interest rates again, devalue within the band, impose capital controls, or float the currency?}
+  \vspace{.4cm}
   \begin{center}
   \begin{tikzpicture}[node distance=.6cm,
     date/.style={rounded corners,minimum width=3.5cm,minimum height=1.2cm,
@@ -406,29 +452,27 @@
     \draw[-{Latex[length=2mm]},very thick,Brick] (d15)--(d18);
   \end{tikzpicture}
   \end{center}
-  \vspace{.55cm}
+  \vspace{.35cm}
   \begin{itemize}
-    \item The BCB retained the option to intervene against disorderly movements.
+    \item None of the options was free: each allocates the adjustment to someone --- borrowers, exporters, taxpayers, or savers.
     \item Formal inflation targeting followed in July 1999.
-    \item The nominal anchor shifted from the exchange rate to the inflation target.
   \end{itemize}
   \source{BCB, \href{https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?numero=6565&tipo=Comunicado}{Communique 6,565}; BCB Working Paper 25.}
 \end{frame}
 
-% 16
-\begin{frame}{Since 1999, the exchange rate floats and the BCB targets inflation}
+\begin{frame}{1999 changed who absorbs the shock}
   \begin{columns}[T,onlytextwidth]
     \column{.48\textwidth}
-      \begin{block}{Formal regime}
-        The market determines the exchange rate. The BCB does not intervene to select a level.
+      \begin{block}{Before: defend the parity}
+        Interest rates and reserves absorbed external shocks so the exchange-rate path could hold.
       \end{block}
       \vspace{.25cm}
-      \begin{block}{Monetary anchor}
-        The policy rate responds to the inflation outlook under an explicit target.
+      \begin{block}{After: let the price move}
+        The currency absorbs part of the shock; the policy rate responds to the inflation outlook.
       \end{block}
     \column{.48\textwidth}
-      \begin{exampleblock}{Adjustment mechanism}
-        The currency absorbs part of external shocks while interest rates respond to the inflation outlook.
+      \begin{exampleblock}{Adjustment since 1999}
+        The market determines the exchange rate; the BCB intervenes only against disorderly conditions, not to set a level.
       \end{exampleblock}
       \vspace{.25cm}
       \question{The nominal anchor moved from the exchange rate to the inflation target.}
@@ -436,42 +480,15 @@
   \source{BCB, \href{https://www.bcb.gov.br/en/financialstability/fxpolicy}{Foreign Exchange Policy}.}
 \end{frame}
 
-\begin{frame}{Monetary policy reacts to the inflation outlook}
-  \datagraphic{fig_selic_ipca.pdf}
+\begin{frame}{The exchange rate adjusted after the 1999 regime change}
+  \datagraphic{fig_brl_usd.pdf}
   \begin{itemize}
-    \item The policy rate is forward-looking; it need not move one-for-one with current inflation.
-    \item Fiscal risk and exchange-rate pass-through affect how much tightening is required.
+    \item The band limited adjustment before 1999; the float then absorbed domestic and external shocks.
+    \item A weaker real is not a development policy by itself: relative prices, balance sheets, and persistence matter.
   \end{itemize}
-  \source{BCB SGS 432 and 433. Selic target is the last observation of each month; IPCA is compounded over 12 months.}
+  \source{BCB SGS 3692. BRL per US dollar, selling rate at year-end; shaded period marks the explicit-band era.}
 \end{frame}
 
-% 18
-\begin{frame}{Nominal and real exchange rates answer different questions}
-  \begin{columns}[T,onlytextwidth]
-    \column{.46\textwidth}
-      \begin{block}{Nominal rate}
-        \[
-          E=\text{BRL per USD}
-        \]
-        A rise in $E$ is a nominal depreciation of the real.
-      \end{block}
-    \column{.50\textwidth}
-      \begin{exampleblock}{Real exchange rate}
-        \[
-          q=\frac{E P^{*}}{P}
-        \]
-        A rise in $q$ makes foreign goods more expensive relative to domestic goods under this definition.
-      \end{exampleblock}
-  \end{columns}
-  \vspace{.4cm}
-  \begin{itemize}
-    \item Domestic and foreign inflation can undo a nominal depreciation.
-    \item Productivity, terms of trade, and risk premia affect the equilibrium real rate.
-    \item ``Competitive'' has no meaning without a price index, horizon, and sector.
-  \end{itemize}
-\end{frame}
-
-% 19
 \begin{frame}{A depreciation reaches inflation through several margins}
   \begin{center}
   \begin{tikzpicture}[node distance=.55cm and .65cm,
@@ -493,80 +510,30 @@
     \draw[arr] (prices)--(expect);
   \end{tikzpicture}
   \end{center}
-  \vspace{.4cm}
-  \question{Pass-through depends on expectations, slack, margins, initial inflation, and the size of the shock.}
-  \source{BCB Working Papers 5, 181, and 473.}
-\end{frame}
-
-% 20
-\begin{frame}{Exchange-rate pass-through is state-dependent}
-  \begin{columns}[T,onlytextwidth]
-    \column{.49\textwidth}
-      \begin{beamercolorbox}[rounded=true,sep=.7em,wd=\textwidth]{exampleblock body}
-        \key{Normal conditions}\par
-        Credible targets, anchored expectations, slack, and smaller shocks limit propagation.
-      \end{beamercolorbox}
-    \column{.49\textwidth}
-      \begin{beamercolorbox}[rounded=true,sep=.7em,wd=\textwidth]{block body}
-        \warn{Crisis conditions}\par
-        Large depreciations, high uncertainty, indexation, and unanchored expectations raise propagation.
-      \end{beamercolorbox}
-  \end{columns}
-  \vspace{.75cm}
+  \vspace{.3cm}
   \begin{itemize}
-    \item A 2026 BCB exercise estimates that a 10\% depreciation adds about 1.0 percentage point to IPCA over 12 months and 1.6 points over 24 months.
-    \item The confidence bands are wide, and the effects differ sharply across food, industrial goods, and services.
+    \item A 2026 BCB exercise: a 10\% depreciation adds about 1.0 point to consumer inflation over 12 months --- more in crises, when expectations are unanchored, less in calm times.
     \item Monetary policy responds to the inflation forecast, not mechanically to the exchange rate.
   \end{itemize}
-  \source{BCB, March 2026 Monetary Policy Report, exchange-rate pass-through box; estimates are episode-dependent.}
+  \source{BCB, March 2026 Monetary Policy Report, pass-through box; BCB Working Papers 5, 181, and 473. Estimates are episode-dependent.}
 \end{frame}
 
-% 21
-\begin{frame}{Commodities affect the currency and the production structure}
-  \begin{center}
-  \resizebox{.92\textwidth}{!}{%
-  \begin{tikzpicture}[node distance=.55cm and .8cm,
-    box/.style={rounded corners,minimum height=.95cm,text width=2.8cm,
-                align=center,font=\small,fill=Sky},
-    arr/.style={-{Latex[length=2mm]},thick,BrazilGreen}]
-    \node[box,fill=WarmGold!45] (boom) {Higher commodity prices};
-    \node[box,right=of boom] (flows) {Export revenue and capital inflows};
-    \node[box,right=of flows] (app) {Real appreciation};
-    \node[box,above right=of app] (gain) {Cheaper imports and capital goods};
-    \node[box,below right=of app] (loss) {Lower margins in non-commodity tradables};
-    \draw[arr] (boom)--(flows);
-    \draw[arr] (flows)--(app);
-    \draw[arr] (app)--(gain);
-    \draw[arr] (app)--(loss);
-  \end{tikzpicture}
-  }
-  \end{center}
-  \vspace{.4cm}
-  \begin{itemize}
-    \item The exchange rate distributes a terms-of-trade shock across consumers and sectors.
-    \item ``Dutch disease'' is a mechanism to test, not a complete diagnosis.
-  \end{itemize}
-\end{frame}
-
-% 22
 \begin{frame}{A weaker currency has ambiguous development effects}
-  \scriptsize
+  \small
   \begin{tabularx}{\textwidth}{>{\bfseries}p{2.6cm}XX}
     \toprule
-    Margin & Possible gain from depreciation & Possible cost \\
+    Who & Possible gain from depreciation & Possible cost \\
     \midrule
     Exporters & Higher domestic-currency revenue & Imported inputs and financing become costlier \\
-    Import-competing firms & More price space & Capital goods and technology cost more \\
     Households & Employment may shift toward tradables & Food, fuel, and durable goods become dearer \\
-    Public sector & Some revenues rise with nominal activity & Indexed debt and inflation costs can increase \\
     Productivity & Entry into tradables may support learning & Protection can preserve low-productivity firms \\
     \bottomrule
   \end{tabularx}
-  \vspace{.35cm}
+  \vspace{.4cm}
   \question{The answer depends on balance sheets, imported-input intensity, credibility, and persistence.}
+  \source{Full five-actor version, including firms and the public sector, in the appendix.}
 \end{frame}
 
-% 23
 \begin{frame}{Reserve accumulation changed Brazil's external buffer}
   \datagraphic{fig_reserves.pdf}
   \begin{itemize}
@@ -576,7 +543,6 @@
   \source{BCB SGS 13621. International reserves, cash concept; last daily observation of each month, US\$ billion.}
 \end{frame}
 
-% 26
 \begin{frame}{The post-1999 framework combines adjustment and anchors}
   \begin{center}
   \begin{tikzpicture}[node distance=.6cm and .7cm,
@@ -601,7 +567,6 @@
   \end{itemize}
 \end{frame}
 
-% 27
 \begin{frame}{Brazil's fiscal problem is about composition and credibility}
   \begin{columns}[T,onlytextwidth]
     \column{.48\textwidth}
@@ -614,7 +579,7 @@
       \end{block}
     \column{.48\textwidth}
       \begin{exampleblock}{Development margin}
-        Public investment and high-return maintenance compete for residual fiscal space.
+        Public investment fell to roughly 2\% of GDP --- among the lowest shares in the G20 --- as rigid current spending grew.
       \end{exampleblock}
       \vspace{.25cm}
       \begin{exampleblock}{Macro margin}
@@ -633,7 +598,6 @@
   \source{BCB SGS 13762. Gross general government debt, methodology used since 2008, monthly, percent of GDP.}
 \end{frame}
 
-% 28
 \begin{frame}{Low saving and investment constrain capital deepening}
   \begin{columns}[T,onlytextwidth]
     \column{.44\textwidth}
@@ -656,23 +620,18 @@
   \source{IBGE, National Accounts 2025; rates are shares of GDP.}
 \end{frame}
 
-% 29
-\begin{frame}{Macro scorecard: a major achievement and an incomplete transition}
-  \scriptsize
-  \begin{tabularx}{\textwidth}{>{\bfseries}p{2.4cm}XX}
-    \toprule
-    Area & Achievement & Remaining constraint \\
-    \midrule
-    Inflation & Hyperinflation ended; expectations have an explicit anchor & Shocks still pass through the currency and indexation \\
-    Exchange rate & A float absorbs external shocks & Volatility affects prices, balance sheets, and investment \\
-    External sector & Reserves and lower FX mismatch strengthened buffers & Commodity and global-rate cycles remain important \\
-    Fiscal policy & Strong revenue capacity and broad social insurance & Rigid spending and debt uncertainty compress investment \\
-    Capital formation & Deep domestic financial markets & High cost of capital and low investment \\
-    \bottomrule
-  \end{tabularx}
+\begin{frame}{Macro synthesis: three messages}
+  \begin{enumerate}
+    \setlength\itemsep{.35cm}
+    \item \key{The Real Plan was an institutional solution}, not just a new currency: the URV coordinated expectations, and fiscal measures backed it.
+    \item \key{1999 changed who absorbs shocks}: the float, the inflation target, fiscal rules, and reserves work as one architecture.
+    \item \warn{Stability is not convergence}: debt uncertainty, rigid budgets, and a high cost of capital still shorten horizons and compress investment.
+  \end{enumerate}
+  \vspace{.4cm}
+  \question{So why did stable prices not bring convergence? That is Part II.}
+  \source{Full macro scorecard table in the appendix.}
 \end{frame}
 
-% 30
 \begin{frame}[plain]
   \begin{tikzpicture}[remember picture,overlay]
     \fill[WarmGray] (current page.south west) rectangle (current page.north east);
@@ -683,10 +642,11 @@
   \end{tikzpicture}
 \end{frame}
 
-% 31
+% =============================================================================
+% Part II - Making growth happen
+% =============================================================================
 \sectionframe{Part II -- Making growth happen}{Productivity, firms, workers, and the institutions that connect them}
 
-% 32
 \begin{frame}{Stability raises the return to investment; it does not guarantee it}
   \begin{center}
   \resizebox{.94\textwidth}{!}{%
@@ -710,14 +670,17 @@
   \question{Brazil solved much of the first arrow. The middle of the chain remains weak.}
 \end{frame}
 
-% 33
 \begin{frame}{Aggregate productivity depends on firms and allocation}
   \[
     \text{Aggregate productivity}
     = \underbrace{\text{productivity within firms}}_{\substack{\text{technology, management,}\\\text{skills, scale}}}
     + \underbrace{\text{allocation across firms}}_{\substack{\text{entry, exit, competition,}\\\text{capital and labor flows}}}
   \]
-  \vspace{.45cm}
+  \vspace{.25cm}
+  \begin{beamercolorbox}[rounded=true,sep=.6em,wd=\textwidth]{exampleblock body}
+    \key{Example:} if a bakery that produces twice as much per worker wins customers from a less productive one nearby, average productivity rises --- even though no single firm changed.
+  \end{beamercolorbox}
+  \vspace{.25cm}
   \begin{columns}[T,onlytextwidth]
     \column{.48\textwidth}
       \begin{block}{Within-firm margin}
@@ -730,18 +693,16 @@
   \end{columns}
 \end{frame}
 
-% 34
 \begin{frame}{Brazil's productivity problem is not uniform across sectors}
   \datagraphic{fig_sector_productivity.pdf}
   \begin{itemize}
-    \item Agriculture shows that sustained productivity growth is possible.
-    \item Services employ most workers, so diffusion beyond the frontier sector determines the aggregate result.
+    \item The bars are average annual growth rates of \emph{labor productivity} by sector, 1996--2020.
+    \item Agriculture shows that sustained productivity growth is possible; services employ most workers, so diffusion beyond the frontier sector determines the aggregate result.
   \end{itemize}
   \source{World Bank, labor-productivity growth by sector, 1996--2020; values rounded.}
 \end{frame}
 
-% 35
-\begin{frame}{A long tail of low-productivity firms shapes aggregate outcomes}
+\begin{frame}{A long tail of low-productivity firms shapes the aggregate}
   \begin{columns}[T,onlytextwidth]
     \column{.47\textwidth}
       \begin{block}{The long tail}
@@ -753,86 +714,70 @@
       \end{exampleblock}
     \column{.49\textwidth}
       \begin{itemize}
-        \item Informality lowers tax and regulatory costs but limits scale and credit access.
+        \item Capabilities decide adoption: targets, inventory control, quality systems, and skills.
         \item Complex rules encourage firms to remain small or split activities.
         \item Weak exit and reallocation preserve low-productivity uses of capital and labor.
       \end{itemize}
   \end{columns}
-\end{frame}
-
-\begin{frame}{Firm capabilities determine whether technology is adopted}
-  \begin{columns}[T,onlytextwidth]
-    \column{.31\textwidth}
-      \begin{block}{Management}
-        Targets, inventory control, quality systems, and worker incentives.
-      \end{block}
-    \column{.31\textwidth}
-      \begin{block}{Technology}
-        Digital tools pay off only when processes and skills change with them.
-      \end{block}
-    \column{.31\textwidth}
-      \begin{block}{Scale}
-        Formal finance and access to larger markets allow fixed costs to be spread.
-      \end{block}
-  \end{columns}
-  \vspace{.7cm}
+  \vspace{.45cm}
   \question{Credit subsidies alone do little when management, competition, and demand remain unchanged.}
-  \source{World Bank, Brazil productivity diagnostics; OECD, Economic Survey: Brazil 2023.}
+  \source{World Bank, \emph{Brazil: Skills and Jobs} and productivity diagnostics; OECD, Economic Survey: Brazil 2023.}
 \end{frame}
 
-\begin{frame}{Informality is both insurance and a productivity trap}
+\begin{frame}{Low unemployment can coexist with a dual labor market}
+  \begin{columns}[T,onlytextwidth]
+    \column{.72\textwidth}
+      \includegraphics[width=\linewidth,height=.58\textheight,keepaspectratio]{fig_unemployment.pdf}
+    \column{.25\textwidth}
+      \begin{block}{Informality}
+        \centering
+        {\fontsize{27}{30}\selectfont\color{Brick}\textbf{38.1\%}}\\
+        of workers in 2025
+      \end{block}
+      \begin{itemize}\scriptsize
+        \item insurance: income and flexibility
+        \item trap: no credit, scale, or training
+        \item policy: lower formalization cliffs, portable benefits
+      \end{itemize}
+  \end{columns}
+  \source{BCB SGS 24369, sourced from IBGE PNAD Contínua; IBGE annual informality rate for 2025. Informality is a statistical labor-market category, not a synonym for tax evasion.}
+\end{frame}
+
+\begin{frame}{State capacity is an economic input}
   \begin{columns}[T,onlytextwidth]
     \column{.48\textwidth}
-      \begin{block}{Why workers and firms enter}
-        Low entry costs, flexible hours, weak formal-job creation, and immediate income.
+      \begin{block}{Administrative capacity}
+        Select projects, hire staff, procure inputs, manage contracts, and use data.
       \end{block}
       \vspace{.25cm}
-      \begin{block}{What it provides}
-        A margin of adjustment when formal employment and social insurance do not reach everyone.
+      \begin{block}{Legal capacity}
+        Enforce contracts, protect rights, resolve disputes, and sanction corruption.
       \end{block}
     \column{.48\textwidth}
-      \begin{exampleblock}{What it limits}
-        Credit, training, scale, legal enforcement, tax capacity, and portable protection.
+      \begin{exampleblock}{Fiscal capacity}
+        Raise revenue with low compliance costs and allocate it toward high-return services.
       \end{exampleblock}
       \vspace{.25cm}
-      \begin{exampleblock}{Policy margin}
-        Lower formalization cliffs and make benefits portable across employment types.
+      \begin{exampleblock}{Coordination capacity}
+        Align federal, state, and municipal responsibilities across shared networks.
       \end{exampleblock}
   \end{columns}
-  \source{IBGE, PNAD Continua; OECD, Economic Survey: Brazil 2023. Informality is a statistical labor-market category, not a synonym for tax evasion.}
+  \vspace{.3cm}
+  \muted{\small Keep this slide in mind: every wedge that follows --- taxes, infrastructure, education, security --- is also a state-capacity problem.}
+  \source{World Bank, The Brazil of the Future; OECD, Government at a Glance: Latin America and the Caribbean.}
 \end{frame}
 
-% 36
-\begin{frame}{Embrapa shows how complementary institutions raise productivity}
-  \begin{center}
-  \begin{tikzpicture}[node distance=.42cm,
-    box/.style={rounded corners,minimum height=1.0cm,text width=2.55cm,
-                align=center,font=\scriptsize,fill=Sky},
-    arr/.style={-{Latex[length=1.8mm]},thick,BrazilGreen}]
-    \node[box,fill=DeepNavy,text=white] (research) {Public agricultural research};
-    \node[box,right=of research] (tech) {Soil correction, seeds, and tropical techniques};
-    \node[box,right=of tech] (diff) {Extension, credit, logistics, and diffusion};
-    \node[box,right=of diff,fill=WarmGold!40] (prod) {Private investment and productivity};
-    \draw[arr] (research)--(tech);
-    \draw[arr] (tech)--(diff);
-    \draw[arr] (diff)--(prod);
-  \end{tikzpicture}
-  \end{center}
-  \vspace{.55cm}
+\begin{frame}{Spatial inequality changes which reform binds first}
   \begin{columns}[T,onlytextwidth]
-    \column{.48\textwidth}
-      \begin{block}{Lesson}
-        Mission-oriented research works when adoption, finance, and infrastructure reinforce it.
-      \end{block}
-    \column{.48\textwidth}
-      \begin{exampleblock}{Trade-off}
-        Productivity per hectare and environmental enforcement jointly determine land-use outcomes.
-      \end{exampleblock}
+    \column{.31\textwidth}\begin{block}{Productive structure}Agriculture, industry, services, and public employment have different regional weights.\end{block}
+    \column{.31\textwidth}\begin{block}{Local capacity}Municipalities differ in tax bases, technical staff, procurement, and service networks.\end{block}
+    \column{.31\textwidth}\begin{block}{Household access}Transport, schools, health, sanitation, and security shape mobility within the same city.\end{block}
   \end{columns}
-  \source{Embrapa Cerrados; Ipea, agricultural productivity.}
+  \vspace{.65cm}
+  \question{A national reform produces local results through unequal implementation capacity.}
+  \source{IBGE, Regional Accounts and 2022 Population Census; Ipea, regional development studies.}
 \end{frame}
 
-% 37
 \begin{frame}{``Custo Brasil'' is a system of interacting wedges}
   \begin{center}
   \begin{tikzpicture}[node distance=.65cm and 1.0cm,
@@ -851,21 +796,21 @@
   \end{center}
   \vspace{.25cm}
   \question{Removing one wedge may have little effect when the other complements remain binding.}
+  \muted{\small The rest of this block walks through these wedges one by one.}
 \end{frame}
 
-% 38
-\begin{frame}{The consumption-tax reform is a live implementation test}
+\begin{frame}{Brazil is replacing five overlapping taxes with two VATs}
   \begin{columns}[T,onlytextwidth]
-    \column{.23\textwidth}\begin{block}{2026}Test year for CBS and IBS.\end{block}
-    \column{.23\textwidth}\begin{block}{2027}CBS begins; PIS/Cofins end.\end{block}
-    \column{.23\textwidth}\begin{block}{2029--32}Gradual ICMS/ISS transition.\end{block}
+    \column{.23\textwidth}\begin{block}{2026}Test year for the new system.\end{block}
+    \column{.23\textwidth}\begin{block}{2027}Federal VAT (CBS) replaces PIS/Cofins.\end{block}
+    \column{.23\textwidth}\begin{block}{2029--32}State-municipal VAT (IBS) phases in for ICMS/ISS.\end{block}
     \column{.23\textwidth}\begin{block}{2033}Full new system.\end{block}
   \end{columns}
   \vspace{.45cm}
   \begin{itemize}
-    \item A destination-based VAT should reduce cascading taxes and production distortions.
-    \item Federal coordination, exemptions, compliance systems, and transition rules determine the gain.
-    \item Implementation is an economic reform, not an administrative footnote.
+    \item Today, five taxes at three government levels tax the same sale --- taxes pile on taxes (``cascading'') and firms litigate for decades.
+    \item A destination-based VAT taxes only the value each firm adds, reducing production distortions.
+    \item Federal coordination, exemptions, compliance systems, and transition rules determine the gain: implementation is an economic reform, not an administrative footnote.
   \end{itemize}
   \source{Receita Federal, \href{https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/acoes-e-programas/programas-e-atividades/reforma-tributaria-do-consumo/entenda}{Consumption Tax Reform}.}
 \end{frame}
@@ -889,37 +834,28 @@
   \source{OECD, Competition Assessment Reviews: Brazil; CADE, institutional reports.}
 \end{frame}
 
-\begin{frame}{Logistics determine which firms can reach national markets}
-  \begin{columns}[T,onlytextwidth]
-    \column{.31\textwidth}\begin{block}{Distance}A continental economy makes transport time and reliability part of marginal cost.\end{block}
-    \column{.31\textwidth}\begin{block}{Networks}Roads, rail, ports, storage, and digital systems are complements.\end{block}
-    \column{.31\textwidth}\begin{block}{Governance}Project selection, maintenance, concessions, and licensing determine returns.\end{block}
-  \end{columns}
-  \vspace{.65cm}
-  \question{A new asset raises productivity only if the network around it works.}
-  \source{World Bank, Brazil infrastructure diagnostics; EPL/Infra S.A., National Logistics Plan.}
-\end{frame}
-
-\begin{frame}{Sanitation is infrastructure and human-capital policy}
+\begin{frame}{Infrastructure gaps: logistics and sanitation}
   \begin{columns}[T,onlytextwidth]
     \column{.48\textwidth}
-      \begin{block}{Household channel}
-        Water quality and sewage coverage affect disease, school attendance, time use, and property values.
+      \begin{block}{Logistics}
+        \begin{itemize}
+          \item A continental economy makes transport time and reliability part of marginal cost.
+          \item Roads, rail, ports, storage, and digital systems are complements.
+        \end{itemize}
       \end{block}
     \column{.48\textwidth}
-      \begin{exampleblock}{Implementation channel}
-        Municipal scale, regulation, contracts, and service affordability shape expansion.
+      \begin{exampleblock}{Sanitation}
+        \begin{itemize}
+          \item Water and sewage coverage affect disease, school attendance, time use, and property values.
+          \item National averages conceal large regional and within-city gaps.
+        \end{itemize}
       \end{exampleblock}
   \end{columns}
-  \vspace{.65cm}
-  \begin{itemize}
-    \item National averages conceal large regional and within-city gaps.
-    \item Universalization requires investment and credible regulation, not construction alone.
-  \end{itemize}
-  \source{SNIS, Ministry of Cities; IBGE, 2022 Population Census sanitation results.}
+  \vspace{.5cm}
+  \question{A new asset raises productivity only if governance, maintenance, and the network around it work.}
+  \source{World Bank, Brazil infrastructure diagnostics; EPL/Infra S.A., National Logistics Plan; SNIS, Ministry of Cities.}
 \end{frame}
 
-% 39
 \begin{frame}{Trade can raise productivity through inputs, scale, and selection}
   \begin{columns}[T,onlytextwidth]
     \column{.47\textwidth}
@@ -948,18 +884,17 @@
 \begin{frame}{The credit spread remains a microeconomic wedge}
   \datagraphic{fig_credit_spread.pdf}
   \begin{itemize}
-    \item The spread combines expected losses, operating costs, taxes, market power, and risk premia.
-    \item Better collateral, information sharing, competition, and insolvency rules address different components.
+    \item Concretely: with a policy rate near 10\% and a 20-point spread, a small firm borrows at about 30\% a year --- a machine must return that much before financing it makes sense.
+    \item The spread combines expected losses, operating costs, taxes, market power, and risk premia; collateral rules, information sharing, competition, and insolvency reform address different parts.
   \end{itemize}
   \source{BCB SGS 20783. Average spread on outstanding credit, monthly, percentage points.}
 \end{frame}
 
-% 40
 \begin{frame}{The human-capital constraint is learning, not enrollment alone}
   \datagraphic{fig_pisa_math.pdf}
   \begin{itemize}
-    \item Learning gaps reduce adoption of technology and worker mobility.
-    \item Teacher practice, early childhood, completion, and school governance operate at different horizons.
+    \item PISA tests 15-year-old students; ``basic proficiency'' is Level 2 in mathematics --- using simple procedures to solve everyday problems.
+    \item Learning gaps reduce technology adoption and worker mobility.
   \end{itemize}
   \source{OECD, \href{https://www.oecd.org/en/publications/pisa-2022-results-volume-i-and-ii-country-notes_ed6fbcc5-en/brazil_61690648-en.html}{PISA 2022: Brazil}.}
 \end{frame}
@@ -970,131 +905,70 @@
     \column{.31\textwidth}\begin{block}{School system}Teacher support and instructional time determine whether enrollment becomes learning.\end{block}
     \column{.31\textwidth}\begin{block}{Territory}Transport, violence, sanitation, and local fiscal capacity affect access and continuity.\end{block}
   \end{columns}
-  \vspace{.65cm}
-  \question{Equal spending does not imply equal learning when local constraints differ.}
-  \source{World Bank, Brazil Human Capital Review; IBGE and Inep education indicators.}
-\end{frame}
-
-% 41
-\begin{frame}{Low unemployment can coexist with a dual labor market}
-  \begin{columns}[T,onlytextwidth]
-    \column{.72\textwidth}
-      \includegraphics[width=\linewidth,height=.58\textheight,keepaspectratio]{fig_unemployment.pdf}
-    \column{.25\textwidth}
-      \begin{block}{Informality}
-        \centering
-        {\fontsize{27}{30}\selectfont\color{Brick}\textbf{38.1\%}}\\
-        of workers in 2025
-      \end{block}
-      \begin{itemize}\scriptsize
-        \item flexibility and income
-        \item weak insurance and training
-        \item lower firm scale
-      \end{itemize}
-  \end{columns}
-  \source{BCB SGS 24369, sourced from IBGE PNAD Continua; IBGE annual informality rate for 2025.}
-\end{frame}
-
-\begin{frame}{Childcare expands labor supply and children's capabilities}
-  \begin{columns}[T,onlytextwidth]
-    \column{.48\textwidth}
-      \begin{block}{Labor-market effect}
-        Affordable, reliable childcare raises mothers' ability to take formal jobs and invest in careers.
-      \end{block}
-    \column{.48\textwidth}
-      \begin{exampleblock}{Human-capital effect}
-        Quality matters: childcare can improve language, nutrition, and school readiness.
-      \end{exampleblock}
-  \end{columns}
-  \vspace{.7cm}
+  \vspace{.45cm}
   \begin{itemize}
-    \item Coverage, hours, location, and quality jointly determine take-up.
-    \item The return is highest when expansion targets families with the largest access gaps.
+    \item Childcare pays a double dividend: mothers can take formal jobs, and quality care improves children's language, nutrition, and school readiness.
+    \item Equal spending does not imply equal learning when local constraints differ.
   \end{itemize}
-  \source{IBGE, PNAD Continua care responsibilities; World Bank, Brazil gender and human-capital diagnostics.}
+  \source{World Bank, Brazil Human Capital Review; IBGE, PNAD Contínua care responsibilities; Inep education indicators.}
 \end{frame}
 
-% 42
-\begin{frame}{Growth and redistribution are not opposing mechanisms}
+\begin{frame}{Embrapa shows how complementary institutions raise productivity}
   \begin{center}
-  \begin{tikzpicture}[node distance=.7cm and 1.0cm,
-    box/.style={rounded corners,minimum height=1.0cm,text width=3.2cm,
-                align=center,font=\small,fill=Sky},
-    arr/.style={-{Latex[length=2mm]},thick,BrazilGreen}]
-    \node[box] (jobs) {Employment and labor income};
-    \node[box,right=of jobs] (transfers) {Targeted transfers and social insurance};
-    \node[box,below=1.0cm of $(jobs)!0.5!(transfers)$,fill=WarmGold!35] (poverty)
-      {Lower poverty and higher investment in children};
-    \draw[arr] (jobs)--(poverty);
-    \draw[arr] (transfers)--(poverty);
+  \begin{tikzpicture}[node distance=.42cm,
+    box/.style={rounded corners,minimum height=1.0cm,text width=2.55cm,
+                align=center,font=\scriptsize,fill=Sky},
+    arr/.style={-{Latex[length=1.8mm]},thick,BrazilGreen}]
+    \node[box,fill=DeepNavy,text=white] (research) {Public agricultural research};
+    \node[box,right=of research] (tech) {Soil correction, seeds, and tropical techniques};
+    \node[box,right=of tech] (diff) {Extension, credit, logistics, and diffusion};
+    \node[box,right=of diff,fill=WarmGold!40] (prod) {Private investment and productivity};
+    \draw[arr] (research)--(tech);
+    \draw[arr] (tech)--(diff);
+    \draw[arr] (diff)--(prod);
   \end{tikzpicture}
   \end{center}
-  \vspace{.4cm}
+  \vspace{.55cm}
+  \begin{columns}[T,onlytextwidth]
+    \column{.48\textwidth}
+      \begin{block}{Lesson}
+        Mission-oriented research works when adoption, finance, and infrastructure reinforce it.
+      \end{block}
+    \column{.48\textwidth}
+      \begin{exampleblock}{Trade-off}
+        Productivity per hectare and environmental enforcement jointly determine land-use outcomes.
+      \end{exampleblock}
+  \end{columns}
+  \source{Embrapa Cerrados; Ipea, agricultural productivity studies.}
+\end{frame}
+
+\begin{frame}{Inclusion has a color and an address}
+  \begin{columns}[T,onlytextwidth]
+    \column{.31\textwidth}
+      \begin{block}{Income and work}
+        White workers earn about 70\% more on average; Black and brown workers are overrepresented in informal jobs.
+      \end{block}
+    \column{.31\textwidth}
+      \begin{block}{Services and territory}
+        Sanitation, transport, and school gaps concentrate in majority-Black peripheries and the North and Northeast.
+      \end{block}
+    \column{.31\textwidth}
+      \begin{block}{Violence}
+        Roughly four in five homicide victims in Brazil are Black.
+      \end{block}
+  \end{columns}
+  \vspace{.2cm}
   \begin{itemize}
-    \item Recent poverty reduction reflects both labor income and transfers.
-    \item Benefit design should preserve coverage while reducing abrupt formalization penalties.
-    \item Poverty rates must always report the line and purchasing-power standard used.
+    \item Black and brown Brazilians are 55.5\% of the population --- majority conditions, not edge cases. Poverty fell through labor income and transfers, but race and territory still predict who is poor.
   \end{itemize}
-  \source{Ipea, Poverty and Inequality, 1995--2024; IBGE, Social Indicators 2025.}
+  \question{Race and territory are not separate topics: they are where the aggregate gaps live.}
+  \source{IBGE, 2022 Census and Desigualdades Sociais por Cor ou Raça no Brasil; Ipea/FBSP, Atlas da Violência 2026; Ipea, Poverty and Inequality 1995--2024.}
 \end{frame}
 
-% 43
-\begin{frame}{Pix is a case of digital public infrastructure}
-  \begin{columns}[T,onlytextwidth]
-    \column{.44\textwidth}
-      \begin{center}
-        {\fontsize{32}{36}\selectfont\color{DeepNavy}\textbf{170m+}}\\[-.1cm]
-        \muted{individual users}
-        \vspace{.55cm}
-
-        {\fontsize{32}{36}\selectfont\color{BrazilGreen}\textbf{7bn+}}\\[-.1cm]
-        \muted{transactions in January 2026}
-      \end{center}
-    \column{.52\textwidth}
-      \begin{itemize}
-        \item The central bank set common rails, rules, and access standards.
-        \item Private institutions compete on top of a public protocol.
-        \item Immediate settlement lowers payment frictions for households and small firms.
-        \item Fraud, digital access, and over-indebtedness remain policy concerns.
-      \end{itemize}
-  \end{columns}
-  \source{BCB, \href{https://www.bcb.gov.br/estabilidadefinanceira/estatisticaspix}{Pix Statistics}; figures reported in early 2026.}
-\end{frame}
-
-\begin{frame}{Spatial inequality changes which reform binds first}
-  \begin{columns}[T,onlytextwidth]
-    \column{.31\textwidth}\begin{block}{Productive structure}Agriculture, industry, services, and public employment have different regional weights.\end{block}
-    \column{.31\textwidth}\begin{block}{Local capacity}Municipalities differ in tax bases, technical staff, procurement, and service networks.\end{block}
-    \column{.31\textwidth}\begin{block}{Household access}Transport, schools, health, sanitation, and security shape mobility within the same city.\end{block}
-  \end{columns}
-  \vspace{.65cm}
-  \question{A national reform produces local results through unequal implementation capacity.}
-  \source{IBGE, Regional Accounts and 2022 Population Census; Ipea, regional development studies.}
-\end{frame}
-
-\begin{frame}{State capacity is an economic input}
-  \begin{columns}[T,onlytextwidth]
-    \column{.48\textwidth}
-      \begin{block}{Administrative capacity}
-        Select projects, hire staff, procure inputs, manage contracts, and use data.
-      \end{block}
-      \vspace{.25cm}
-      \begin{block}{Legal capacity}
-        Enforce contracts, protect rights, resolve disputes, and sanction corruption.
-      \end{block}
-    \column{.48\textwidth}
-      \begin{exampleblock}{Fiscal capacity}
-        Raise revenue with low compliance costs and allocate it toward high-return services.
-      \end{exampleblock}
-      \vspace{.25cm}
-      \begin{exampleblock}{Coordination capacity}
-        Align federal, state, and municipal responsibilities across shared networks.
-      \end{exampleblock}
-  \end{columns}
-  \source{World Bank, The Brazil of the Future; OECD, Government at a Glance: Latin America and the Caribbean.}
-\end{frame}
-
-\sectionframe{Micro lens -- Security and development}{How coercive territorial power changes markets, services, and state capacity}
+% -----------------------------------------------------------------------------
+% Micro lens: security case study
+% -----------------------------------------------------------------------------
+\sectionframe{Case study -- Security and development}{How coercive territorial power changes markets, services, and state capacity}
 
 \begin{frame}{Organized crime is a microeconomic constraint}
   \begin{center}
@@ -1111,14 +985,331 @@
   \end{center}
   \vspace{.55cm}
   \begin{itemize}
-    \item Extortion acts like an illegal tax; forced suppliers create local market power.
+    \item Extortion acts like an illegal tax; forced suppliers create local market power over gas, internet, and transport.
     \item Land appropriation weakens property rights and collateral.
     \item Intimidation and corruption can redirect enforcement and public resources.
   \end{itemize}
-  \source{MPRJ documented cases; SENAPPEN; GENI/UFF and Instituto Fogo Cruzado. Mechanisms are not estimates of aggregate GDP losses.}
+  \source{MPRJ documented cases; SENAPPEN; GENI/UFF and Instituto Fogo Cruzado. Mechanisms are not estimates of aggregate GDP losses. Measurement details in the appendix.}
 \end{frame}
 
-\begin{frame}{There is no single organized-crime statistic}
+\begin{frame}{Metropolitan Rio shows the scale of territorial armed governance}
+  \datagraphic{fig_rio_territorial_control.pdf}
+  \begin{itemize}
+    \item In 2024, 34.9\% of residents were estimated to live under armed-group control or influence.
+    \item The estimate covers Metropolitan Rio, uses anonymous reporting, and is not a national census --- this is a Rio case study, not a national statistic.
+  \end{itemize}
+  \source{GENI/UFF and Instituto Fogo Cruzado, Mapa Histórico dos Grupos Armados 2025, with 2022 Census population data. Published shares are rounded.}
+\end{frame}
+
+\begin{frame}{Territorial violence erodes human capital}
+  \begin{columns}[T,onlytextwidth]
+    \column{.31\textwidth}
+      \begin{block}{Exposure}
+        \centering{\fontsize{27}{30}\selectfont\color{Brick}\textbf{51\%}}\\
+        of students in the 19 municipalities studied were affected by armed violence in 2022.
+      \end{block}
+    \column{.31\textwidth}
+      \begin{block}{Learning}
+        \centering{\fontsize{27}{30}\selectfont\color{DeepNavy}\textbf{10 points}}\\
+        maximum reported SAEB gap, interpreted by the authors as about six months of learning.
+      \end{block}
+    \column{.31\textwidth}
+      \begin{block}{Dropout}
+        \centering{\fontsize{24}{27}\selectfont\color{BrazilGreen}\textbf{7.2 vs. 9.0--9.6\%}}\\
+        non-controlled versus controlled areas in Metropolitan Rio.
+      \end{block}
+  \end{columns}
+  \vspace{.35cm}
+  \source{UNICEF, Educação Sob Cerco 2025, with GENI/UFF and Instituto Fogo Cruzado. Conditional estimates with statistical controls; the design is not experimental.}
+\end{frame}
+
+\begin{frame}{A credible response combines enforcement and service delivery}
+  \begin{columns}[T,onlytextwidth]
+    \column{.31\textwidth}
+      \begin{block}{Protect territory and services}
+        Safe routes, reliable transport, service continuity, youth prevention.\\[.2cm]
+        \muted{\scriptsize Outcome: attendance, business entry, service uptime.}
+      \end{block}
+    \column{.31\textwidth}
+      \begin{block}{Investigate and prosecute}
+        Forensics, witness protection, case management, corruption control.\\[.2cm]
+        \muted{\scriptsize Outcome: clearance with due process.}
+      \end{block}
+    \column{.31\textwidth}
+      \begin{block}{Follow the money}
+        Beneficial ownership, financial intelligence, freezing and confiscation.\\[.2cm]
+        \muted{\scriptsize Outcome: assets recovered, cash flow disrupted.}
+      \end{block}
+  \end{columns}
+  \vspace{.45cm}
+  \question{Success is measured by market entry and school attendance --- not by operations or arrests alone.}
+  \source{MJSP, ENFOC and ENCCLA; SENAPPEN/CNPCP, National Plan 2024--2027. Full instrument-outcome table and discussion exercise in the appendix.}
+\end{frame}
+
+% =============================================================================
+% Part III - Constraints and the integrated agenda
+% =============================================================================
+\sectionframe{Part III -- The integrated agenda}{Demography, climate, political economy, and what to do first}
+
+\begin{frame}{Demography raises the return to productivity now}
+  \datagraphic{fig_ageing.pdf}
+  \begin{itemize}
+    \item The working-age share will no longer provide the same contribution to growth.
+    \item Health, pensions, care, lifelong learning, and later-life employment become linked policies.
+  \end{itemize}
+  \source{IBGE, Population Projections 2024. The 2070 value is a projection, not an observed outcome.}
+\end{frame}
+
+\begin{frame}{Three clocks change every block you have seen}
+  \begin{columns}[T,onlytextwidth]
+    \column{.31\textwidth}
+      \begin{block}{Demography}
+        Population peaks around 2041. The 60+ share rises from 15.6\% in 2023 to 37.8\% in 2070.
+      \end{block}
+    \column{.31\textwidth}
+      \begin{block}{Climate}
+        Droughts, floods, heat, and land-use pressure affect capital, food, energy, and cities.
+      \end{block}
+    \column{.31\textwidth}
+      \begin{block}{Fiscal space}
+        Aging raises health and pension pressure while adaptation and infrastructure require investment.
+      \end{block}
+  \end{columns}
+  \vspace{.7cm}
+  \question{Future growth must rely more on productivity because labor-force expansion is ending.}
+  \source{IBGE, Population Projections 2024; OECD, Economic Survey Brazil 2023.}
+\end{frame}
+
+\begin{frame}{Climate is a production strategy, not a final section}
+  \begin{columns}[T,onlytextwidth]
+    \column{.48\textwidth}
+      \begin{exampleblock}{Energy advantage}
+        \centering
+        {\fontsize{30}{34}\selectfont\color{BrazilGreen}\textbf{86.6\%}}\\
+        renewable domestic electricity supply in 2025
+      \end{exampleblock}
+      \begin{itemize}
+        \item Cheap clean power is an export and investment pitch: low-carbon industry, fuels, and agriculture.
+      \end{itemize}
+    \column{.48\textwidth}
+      \begin{block}{Emissions structure}
+        \centering
+        {\fontsize{26}{30}\selectfont\color{Brick}\textbf{about 70\%}}\\
+        from land use and agriculture in the 2022 inventory
+      \end{block}
+      \begin{itemize}
+        \item Enforcement, livestock productivity, and restoration decide credibility abroad.
+      \end{itemize}
+  \end{columns}
+  \vspace{.3cm}
+  \begin{itemize}
+    \item Climate runs through every earlier block: exports and the exchange rate, infrastructure and adaptation, agriculture, urban risk, and the budget.
+  \end{itemize}
+  \source{EPE, BEN 2026; MCTI, National Emissions Inventory, 2022 results.}
+\end{frame}
+
+\begin{frame}{Why are apparently beneficial reforms difficult to implement?}
+  \begin{columns}[T,onlytextwidth]
+    \column{.48\textwidth}
+      \begin{block}{The federal bargain}
+        One Union, 27 states, and 5,570 municipalities share taxes and mandates; major reforms need constitutional amendments.
+      \end{block}
+      \vspace{.15cm}
+      \begin{block}{A rigid budget}
+        Earmarks and mandatory spending leave little room to reallocate each year.
+      \end{block}
+    \column{.48\textwidth}
+      \begin{exampleblock}{Concentrated losers, diffuse winners}
+        Sectors with special regimes organize and litigate; winning consumers are dispersed. The 2023 tax reform passed by compensating losers over decades.
+      \end{exampleblock}
+      \vspace{.15cm}
+      \begin{exampleblock}{Unequal implementation}
+        A law is only as good as the local administration that applies it.
+      \end{exampleblock}
+  \end{columns}
+  \vspace{.25cm}
+  \question{A reform's design includes its coalition, compensation, and sequencing.}
+\end{frame}
+
+\begin{frame}{The agenda is a package of complements}
+  \begin{center}
+  \begin{tikzpicture}[node distance=.55cm and .55cm,
+    box/.style={rounded corners,minimum height=1.25cm,text width=3.0cm,
+                align=center,font=\small\bfseries,fill=Sky}]
+    \node[box,fill=DeepNavy,text=white] (found) {Foundations\\inflation, fiscal credibility, flexible FX};
+    \node[box,right=of found] (eng) {Productive engines\\taxes, trade, competition, infrastructure};
+    \node[box,below=of found] (cap) {Capabilities\\learning, health, formalization, mobility};
+    \node[box,below=of eng,fill=WarmGold!40] (future) {Future-proofing\\innovation, climate, demography};
+    \draw[very thick,BrazilGreen,<->] (found)--(eng);
+    \draw[very thick,BrazilGreen,<->] (found)--(cap);
+    \draw[very thick,BrazilGreen,<->] (eng)--(future);
+    \draw[very thick,BrazilGreen,<->] (cap)--(future);
+    \node[draw=Brick,dashed,rounded corners,fit=(found)(eng)(cap)(future),inner sep=10pt,
+      label={[text=Brick,font=\scriptsize\bfseries]below:state capacity and political coalitions determine implementation}] {};
+  \end{tikzpicture}
+  \end{center}
+\end{frame}
+
+\begin{frame}{Priority exercise: allocate a reform budget}
+  \question{Your group has R\$100 of political capital. Allocate it across the four pillars.}
+  \vspace{.45cm}
+  \begin{columns}[T,onlytextwidth]
+    \column{.23\textwidth}
+      \begin{block}{Foundations}
+        R\$\rule{1.0cm}{.3pt}
+      \end{block}
+    \column{.23\textwidth}
+      \begin{block}{Productive engines}
+        R\$\rule{1.0cm}{.3pt}
+      \end{block}
+    \column{.23\textwidth}
+      \begin{block}{Capabilities}
+        R\$\rule{1.0cm}{.3pt}
+      \end{block}
+    \column{.23\textwidth}
+      \begin{block}{Future-proofing}
+        R\$\rule{1.0cm}{.3pt}
+      \end{block}
+  \end{columns}
+  \vspace{.45cm}
+  \begin{itemize}
+    \item Name one complement without which your largest allocation would fail, and one group or region that bears the transition cost.
+    \item \muted{8 minutes in groups, then 5 minutes of report-backs.}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Answering the opening puzzle}
+  \question{Why has Brazil failed to achieve sustained income convergence?}
+  \vspace{.25cm}
+  \begin{beamercolorbox}[rounded=true,sep=.7em,wd=\textwidth]{exampleblock body}
+    \textbf{Brazil has repeatedly demonstrated the capacity to solve difficult problems. Its central development challenge is not the absence of successful institutions, but the failure to diffuse capabilities across firms, workers, cities, and regions.}
+  \end{beamercolorbox}
+  \vspace{.25cm}
+  \begin{enumerate}
+    \item \key{Stability made growth possible} --- the Real Plan and the post-1999 architecture ended the crises that destroyed planning.
+    \item \key{Diffusion makes growth happen} --- Embrapa, Pix, and frontier firms prove capability; taxes, credit, learning, and infrastructure keep it from spreading.
+    \item \key{State capacity and coalitions set the pace} --- reforms succeed when implementation and compensation are designed in.
+  \end{enumerate}
+  \vspace{.25cm}
+  \centering\large\textbf{Questions and discussion --- 10 minutes}
+\end{frame}
+
+% =============================================================================
+% Appendix
+% =============================================================================
+\appendix
+\sectionframe{Appendix}{Backup slides: formulas, full tables, measurement, and references}
+
+\begin{frame}{Backup: nominal and real exchange rates answer different questions}
+  \begin{columns}[T,onlytextwidth]
+    \column{.46\textwidth}
+      \begin{block}{Nominal rate}
+        \[
+          E=\text{BRL per USD}
+        \]
+        A rise in $E$ is a nominal depreciation of the real.
+      \end{block}
+    \column{.50\textwidth}
+      \begin{exampleblock}{Real exchange rate}
+        \[
+          q=\frac{E P^{*}}{P}
+        \]
+        A rise in $q$ makes foreign goods more expensive relative to domestic goods under this definition.
+      \end{exampleblock}
+  \end{columns}
+  \vspace{.4cm}
+  \begin{itemize}
+    \item Domestic and foreign inflation can undo a nominal depreciation.
+    \item Productivity, terms of trade, and risk premia affect the equilibrium real rate.
+    \item ``Competitive'' has no meaning without a price index, horizon, and sector.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Backup: a crawling band trades flexibility for credibility}
+  \begin{center}
+  \resizebox{.88\textwidth}{!}{%
+  \begin{tikzpicture}[x=1cm,y=1cm]
+    \draw[->,thick,MidGray] (.4,.5) -- (13.8,.5) node[right,font=\scriptsize]{time};
+    \draw[->,thick,MidGray] (.4,.5) -- (.4,4.6) node[above,font=\scriptsize]{BRL per USD};
+    \fill[WarmGold!18] (.8,1.0) -- (13.2,3.1) -- (13.2,3.8) -- (.8,1.7) -- cycle;
+    \draw[very thick,Brick,dashed] (.8,1.7) -- (13.2,3.8);
+    \draw[very thick,BrazilGreen,dashed] (.8,1.0) -- (13.2,3.1);
+    \draw[very thick,DeepNavy] plot[smooth] coordinates
+      {(.8,1.3)(2.2,1.55)(3.8,1.7)(5.3,2.0)(7.0,2.18)(8.6,2.58)(10.1,2.72)(11.5,3.08)(13.2,3.45)};
+    \node[font=\scriptsize,text=Brick] at (11.9,4.05) {ceiling};
+    \node[font=\scriptsize,text=BrazilGreen] at (12.0,2.92) {floor};
+    \node[font=\scriptsize,text=DeepNavy,fill=white,inner sep=1.5pt] at (8.2,2.33) {market rate};
+    \node[align=center,font=\scriptsize,text=DeepNavy] at (5.4,4.05)
+      {the corridor shifts over time};
+  \end{tikzpicture}
+  }
+  \end{center}
+  \begin{itemize}
+    \item The market rate fluctuates inside the corridor while the authorities move its boundaries over time.
+    \item A narrow corridor can strengthen the anchor but invites one-way bets when fundamentals diverge.
+  \end{itemize}
+  \source{Stylized diagram; BCB, 1999 Q1 FX Market Analysis.}
+\end{frame}
+
+\begin{frame}{Backup: monetary policy reacts to the inflation outlook}
+  \datagraphic{fig_selic_ipca.pdf}
+  \begin{itemize}
+    \item The policy rate is forward-looking; it need not move one-for-one with current inflation.
+    \item Fiscal risk and exchange-rate pass-through affect how much tightening is required.
+  \end{itemize}
+  \source{BCB SGS 432 and 433. Selic target is the last observation of each month; IPCA is compounded over 12 months.}
+\end{frame}
+
+\begin{frame}{Backup: full distributional effects of a depreciation}
+  \scriptsize
+  \begin{tabularx}{\textwidth}{>{\bfseries}p{2.6cm}XX}
+    \toprule
+    Margin & Possible gain from depreciation & Possible cost \\
+    \midrule
+    Exporters & Higher domestic-currency revenue & Imported inputs and financing become costlier \\
+    Import-competing firms & More price space & Capital goods and technology cost more \\
+    Households & Employment may shift toward tradables & Food, fuel, and durable goods become dearer \\
+    Public sector & Some revenues rise with nominal activity & Indexed debt and inflation costs can increase \\
+    Productivity & Entry into tradables may support learning & Protection can preserve low-productivity firms \\
+    \bottomrule
+  \end{tabularx}
+  \vspace{.35cm}
+  \question{The answer depends on balance sheets, imported-input intensity, credibility, and persistence.}
+\end{frame}
+
+\begin{frame}{Backup: macro scorecard}
+  \scriptsize
+  \begin{tabularx}{\textwidth}{>{\bfseries}p{2.4cm}XX}
+    \toprule
+    Area & Achievement & Remaining constraint \\
+    \midrule
+    Inflation & Hyperinflation ended; expectations have an explicit anchor & Shocks still pass through the currency and indexation \\
+    Exchange rate & A float absorbs external shocks & Volatility affects prices, balance sheets, and investment \\
+    External sector & Reserves and lower FX mismatch strengthened buffers & Commodity and global-rate cycles remain important \\
+    Fiscal policy & Strong revenue capacity and broad social insurance & Rigid spending and debt uncertainty compress investment \\
+    Capital formation & Deep domestic financial markets & High cost of capital and low investment \\
+    \bottomrule
+  \end{tabularx}
+\end{frame}
+
+\begin{frame}{Backup: micro scorecard}
+  \scriptsize
+  \begin{tabularx}{\textwidth}{>{\bfseries}p{2.25cm}XX}
+    \toprule
+    Area & Evidence of capability & Binding margin \\
+    \midrule
+    Technology & Agricultural research and digital finance & Diffusion beyond frontier sectors \\
+    Firms & Globally competitive exporters and banks & Long tail of small, informal producers \\
+    Tax system & Reform establishes a modern VAT structure & Transition, exemptions, and implementation \\
+    Trade & Competitive commodity and selected manufacturing exports & Low integration and costly inputs \\
+    Workers & Broad enrollment and recent labor-market strength & Learning gaps and informality \\
+    Infrastructure & Scalable concessions and digital public rails & Logistics, sanitation, and local coordination \\
+    State capacity & Strong agencies and data systems in selected areas & Uneven local capacity and territorial coercion \\
+    \bottomrule
+  \end{tabularx}
+\end{frame}
+
+\begin{frame}{Backup: there is no single organized-crime statistic}
   \begin{columns}[T,onlytextwidth]
     \column{.31\textwidth}
       \begin{block}{Lethal violence}
@@ -1138,28 +1329,19 @@
   \end{columns}
   \vspace{.6cm}
   \question{Measurement must match the mechanism being discussed.}
-  \source{Ipea/FBSP, Atlas da Violencia 2026; SENAPPEN, Mapa das ORCRIMs; GENI/UFF and Instituto Fogo Cruzado, 2025.}
+  \source{Ipea/FBSP, Atlas da Violência 2026; SENAPPEN, Mapa das ORCRIMs; GENI/UFF and Instituto Fogo Cruzado, 2025.}
 \end{frame}
 
-\begin{frame}{Lethal violence fell, but data quality changes the trend}
+\begin{frame}{Backup: lethal violence fell, but data quality changes the trend}
   \datagraphic{fig_homicide_rates.pdf}
   \begin{itemize}
     \item The registered rate fell after 2017; reallocating some deaths of undetermined cause produces a smaller decline.
-    \item Homicide measures lethal violence. It does not measure the size or revenue of criminal organizations.
+    \item Homicide measures lethal violence, not the size or revenue of criminal organizations.
   \end{itemize}
-  \source{Ipea and FBSP, Atlas da Violencia 2026, based on SIM/Ministry of Health and IBGE. Rates per 100,000. Estimated series is model-based.}
+  \source{Ipea and FBSP, Atlas da Violência 2026, based on SIM/Ministry of Health and IBGE. Rates per 100,000. Estimated series is model-based.}
 \end{frame}
 
-\begin{frame}{Metropolitan Rio shows the scale of territorial armed governance}
-  \datagraphic{fig_rio_territorial_control.pdf}
-  \begin{itemize}
-    \item In 2024, 34.9\% of residents were estimated to live under armed-group control or influence.
-    \item The estimate covers Metropolitan Rio, uses anonymous reporting, and is not a national census.
-  \end{itemize}
-  \source{GENI/UFF and Instituto Fogo Cruzado, Mapa Historico dos Grupos Armados 2025, with 2022 Census population data. Published shares are rounded.}
-\end{frame}
-
-\begin{frame}{Coercive market power reaches ordinary goods and services}
+\begin{frame}{Backup: coercive market power reaches ordinary goods and services}
   \begin{columns}[T,onlytextwidth]
     \column{.31\textwidth}
       \begin{block}{Household services}
@@ -1185,32 +1367,10 @@
         \end{itemize}
       \end{exampleblock}
   \end{columns}
-  \source{MPRJ cases in Nova Iguacu (2019), Itaborai (2019), Queimados (2024), and the illegal-construction task force (2022). These cases do not measure national prevalence.}
+  \source{MPRJ cases in Nova Iguaçu (2019), Itaboraí (2019), Queimados (2024), and the illegal-construction task force (2022). These cases do not measure national prevalence.}
 \end{frame}
 
-\begin{frame}{Territorial violence erodes human capital}
-  \begin{columns}[T,onlytextwidth]
-    \column{.31\textwidth}
-      \begin{block}{Exposure}
-        \centering{\fontsize{27}{30}\selectfont\color{Brick}\textbf{51\%}}\\
-        of students in the 19 municipalities studied were affected by armed violence in 2022.
-      \end{block}
-    \column{.31\textwidth}
-      \begin{block}{Learning}
-        \centering{\fontsize{27}{30}\selectfont\color{DeepNavy}\textbf{10 points}}\\
-        maximum reported SAEB gap, interpreted by the authors as about six months of learning.
-      \end{block}
-    \column{.31\textwidth}
-      \begin{block}{Dropout}
-        \centering{\fontsize{24}{27}\selectfont\color{BrazilGreen}\textbf{7.2 vs. 9.0--9.6\%}}\\
-        non-controlled versus controlled areas in Metropolitan Rio.
-      \end{block}
-  \end{columns}
-  \vspace{.35cm}
-  \source{UNICEF, Educacao Sob Cerco 2025, with GENI/UFF and Instituto Fogo Cruzado. Conditional estimates with statistical controls; the design is not experimental.}
-\end{frame}
-
-\begin{frame}{A credible response combines enforcement and service delivery}
+\begin{frame}{Backup: full instrument-outcome menu for security policy}
   \scriptsize
   \begin{tabularx}{\textwidth}{>{\bfseries}p{2.35cm}XX}
     \toprule
@@ -1226,7 +1386,7 @@
   \source{MJSP, ENFOC and ENCCLA; SENAPPEN/CNPCP, National Criminal and Penitentiary Policy Plan 2024--2027.}
 \end{frame}
 
-\begin{frame}{Discussion: what outcome would demonstrate greater state capacity?}
+\begin{frame}{Backup discussion: what outcome would demonstrate greater state capacity?}
   \vspace{.2cm}
   \question{Choose one instrument and the final outcome that should be used to evaluate it.}
   \vspace{.55cm}
@@ -1243,142 +1403,38 @@
   \end{itemize}
 \end{frame}
 
-% 44
-\begin{frame}{Micro scorecard: strong examples, weak diffusion}
+\begin{frame}{References and data}
   \scriptsize
-  \begin{tabularx}{\textwidth}{>{\bfseries}p{2.25cm}XX}
-    \toprule
-    Area & Evidence of capability & Binding margin \\
-    \midrule
-    Technology & Agricultural research and digital finance & Diffusion beyond frontier sectors \\
-    Firms & Globally competitive exporters and banks & Long tail of small, informal producers \\
-    Tax system & Reform establishes a modern VAT structure & Transition, exemptions, and implementation \\
-    Trade & Competitive commodity and selected manufacturing exports & Low integration and costly inputs \\
-    Workers & Broad enrollment and recent labor-market strength & Learning gaps and informality \\
-    Infrastructure & Scalable concessions and digital public rails & Logistics, sanitation, and local coordination \\
-    State capacity & Strong agencies and data systems in selected areas & Uneven local capacity and territorial coercion \\
-    \bottomrule
-  \end{tabularx}
-\end{frame}
-
-\begin{frame}{Demography raises the return to productivity now}
-  \datagraphic{fig_ageing.pdf}
-  \begin{itemize}
-    \item The working-age share will no longer provide the same contribution to growth.
-    \item Health, pensions, care, lifelong learning, and later-life employment become linked policies.
-  \end{itemize}
-  \source{IBGE, Population Projections 2024. The 2070 value is a projection, not an observed outcome.}
-\end{frame}
-
-% 45
-\begin{frame}{Three clocks tighten the development constraint}
-  \begin{columns}[T,onlytextwidth]
-    \column{.31\textwidth}
-      \begin{block}{Demography}
-        Population peaks around 2041. The 60+ share rises from 15.6\% in 2023 to 37.8\% in 2070.
-      \end{block}
-    \column{.31\textwidth}
-      \begin{block}{Climate}
-        Droughts, floods, heat, and land-use pressure affect capital, food, energy, and cities.
-      \end{block}
-    \column{.31\textwidth}
-      \begin{block}{Fiscal space}
-        Aging raises health and pension pressure while adaptation and infrastructure require investment.
-      \end{block}
-  \end{columns}
-  \vspace{.7cm}
-  \question{Future growth must rely more on productivity because labor-force expansion is ending.}
-  \source{IBGE, Population Projections 2024; OECD, Economic Survey Brazil 2023.}
-\end{frame}
-
-% 46
-\begin{frame}{Brazil has a green advantage and a territorial emissions problem}
-  \begin{columns}[T,onlytextwidth]
-    \column{.48\textwidth}
-      \begin{exampleblock}{Energy advantage}
-        \centering
-        {\fontsize{34}{38}\selectfont\color{BrazilGreen}\textbf{86.6\%}}\\
-        renewable domestic electricity supply in 2025
-      \end{exampleblock}
-      \begin{itemize}
-        \item Hydro, wind, solar, biomass, and biofuels create options for low-carbon production.
-      \end{itemize}
-    \column{.48\textwidth}
-      \begin{block}{Emissions structure}
-        \centering
-        {\fontsize{28}{32}\selectfont\color{Brick}\textbf{about 70\%}}\\
-        from land use and agriculture in the 2022 inventory
-      \end{block}
-      \begin{itemize}
-        \item Enforcement, livestock productivity, restoration, and urban adaptation are central.
-      \end{itemize}
-  \end{columns}
-  \source{EPE, BEN 2026; MCTI, National Emissions Inventory, 2022 results.}
-\end{frame}
-
-% 47
-\begin{frame}{The agenda is a package of complements}
-  \begin{center}
-  \begin{tikzpicture}[node distance=.55cm and .55cm,
-    box/.style={rounded corners,minimum height=1.25cm,text width=3.0cm,
-                align=center,font=\small\bfseries,fill=Sky}]
-    \node[box,fill=DeepNavy,text=white] (found) {Foundations\\inflation, fiscal credibility, flexible FX};
-    \node[box,right=of found] (eng) {Productive engines\\taxes, trade, competition, infrastructure};
-    \node[box,below=of found] (cap) {Capabilities\\learning, health, formalization, mobility};
-    \node[box,below=of eng,fill=WarmGold!40] (future) {Future-proofing\\innovation, climate, demography};
-    \draw[very thick,BrazilGreen,<->] (found)--(eng);
-    \draw[very thick,BrazilGreen,<->] (found)--(cap);
-    \draw[very thick,BrazilGreen,<->] (eng)--(future);
-    \draw[very thick,BrazilGreen,<->] (cap)--(future);
-    \node[draw=Brick,dashed,rounded corners,fit=(found)(eng)(cap)(future),inner sep=10pt,
-      label={[text=Brick,font=\scriptsize\bfseries]below:state capacity and political coalitions determine implementation}] {};
-  \end{tikzpicture}
-  \end{center}
-\end{frame}
-
-% 48
-\begin{frame}{Priority exercise: allocate a reform budget}
+  \textbf{Data cutoff: July 2026.} Series retrieved from official APIs on July 21, 2026; processed CSVs archived with the slides.
   \vspace{.2cm}
-  \question{Your group has R\$100 of political capital. Allocate it across the four pillars.}
-  \vspace{.55cm}
   \begin{columns}[T,onlytextwidth]
-    \column{.23\textwidth}
-      \begin{block}{Foundations}
-        R\$\rule{1.0cm}{.3pt}
-      \end{block}
-    \column{.23\textwidth}
-      \begin{block}{Productive engines}
-        R\$\rule{1.0cm}{.3pt}
-      \end{block}
-    \column{.23\textwidth}
-      \begin{block}{Capabilities}
-        R\$\rule{1.0cm}{.3pt}
-      \end{block}
-    \column{.23\textwidth}
-      \begin{block}{Future-proofing}
-        R\$\rule{1.0cm}{.3pt}
-      \end{block}
+    \column{.48\textwidth}
+      \textbf{Time series (BCB SGS codes)}
+      \begin{itemize}\scriptsize
+        \item IPCA, monthly: SGS 433
+        \item Selic target: SGS 432
+        \item BRL/USD, year-end selling rate: SGS 3692
+        \item Real GDP growth (IBGE): SGS 7326
+        \item International reserves, cash: SGS 13621
+        \item Gross general government debt: SGS 13762
+        \item Unemployment (PNAD Contínua): SGS 24369
+        \item Credit spread, outstanding: SGS 20783
+        \item Convergence: World Bank WDI, NY.GDP.PCAP.KD (constant 2015 US\$)
+      \end{itemize}
+    \column{.48\textwidth}
+      \textbf{Reports and studies}
+      \begin{itemize}\scriptsize
+        \item BCB, Monetary Policy Report, March 2026 (pass-through box); Working Papers 5, 25, 181, 473
+        \item OECD, Economic Survey: Brazil 2023; PISA 2022 Brazil country note
+        \item World Bank, The Brazil of the Future (productivity, 1996--2020)
+        \item IBGE: 2022 Census; Regional Accounts 2021; Population Projections 2024; Desigualdades Sociais por Cor ou Raça
+        \item Ipea/FBSP, Atlas da Violência 2026
+        \item GENI/UFF and Instituto Fogo Cruzado, Mapa Histórico dos Grupos Armados 2025
+        \item UNICEF, Educação Sob Cerco 2025
+        \item EPE, BEN 2026; MCTI, National Emissions Inventory (2022)
+        \item Receita Federal, Consumption Tax Reform portal
+      \end{itemize}
   \end{columns}
-  \vspace{.55cm}
-  \begin{itemize}
-    \item Name one complement without which your largest allocation would fail.
-    \item Name one group or region that bears the transition cost.
-  \end{itemize}
-\end{frame}
-
-% 49
-\begin{frame}{The diagnosis is complementarity, not a single missing reform}
-  \small
-  \begin{itemize}
-    \setlength\itemsep{.18cm}
-    \item Macroeconomic stability protects planning horizons and keeps exchange-rate shocks from becoming persistent inflation.
-    \item A flexible exchange rate, credible fiscal policy, and external buffers improve shock absorption.
-    \item Productivity requires firms to adopt better methods and resources to move toward productive uses.
-    \item State capacity protects rights, regulates markets, delivers services, and confronts territorial coercion.
-    \item Inclusion, demography, and climate affect both the returns to reform and the coalition that can sustain it.
-  \end{itemize}
-  \vspace{.25cm}
-  \question{Questions and discussion}
 \end{frame}
 
 \end{document}
