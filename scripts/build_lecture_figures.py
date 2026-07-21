@@ -15,6 +15,7 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "brazilian_development_agenda_assets"
 DATA = OUT / "data"
 API = "https://api.bcb.gov.br/dados/serie/bcdata.sgs.{code}/dados"
+WB_API = "https://api.worldbank.org/v2/country/{countries}/indicator/{indicator}"
 SESSION = requests.Session()
 SESSION.mount("https://", HTTPAdapter(max_retries=Retry(
     total=5, backoff_factor=1, status_forcelist=[429, 500, 502, 503, 504]
@@ -51,6 +52,25 @@ def bcb(code, start, end, name):
     frame["value"] = pd.to_numeric(frame["valor"], errors="coerce")
     frame = frame[["date", "value"]].dropna().drop_duplicates("date").sort_values("date")
     frame.to_csv(DATA / f"bcb_sgs_{code}_{name}.csv", index=False)
+    return frame
+
+
+def worldbank(countries, indicator, name):
+    response = SESSION.get(
+        WB_API.format(countries=countries, indicator=indicator),
+        params={"format": "json", "per_page": "1000", "date": "1960:2025"},
+        timeout=60,
+    )
+    response.raise_for_status()
+    payload = response.json()[1]
+    frame = pd.DataFrame(
+        {
+            "country": [row["country"]["id"] for row in payload],
+            "year": [int(row["date"]) for row in payload],
+            "value": [row["value"] for row in payload],
+        }
+    ).dropna().sort_values(["country", "year"])
+    frame.to_csv(DATA / f"wb_{name}.csv", index=False)
     return frame
 
 
@@ -137,11 +157,35 @@ def plot_gdp(gdp):
     gdp = gdp.assign(year=gdp["date"].dt.year).query("year >= 1995")
     colors = np.where(gdp["value"] >= 0, GREEN, BRICK)
     fig, ax = plt.subplots(figsize=(8.5, 3.55))
-    ax.bar(gdp["year"], gdp["value"], color=colors, width=.78)
+    bars = ax.bar(gdp["year"], gdp["value"], color=colors, width=.78)
+    # Hatch contractions so the chart does not rely on green-red contrast alone.
+    for bar, value in zip(bars, gdp["value"]):
+        if value < 0:
+            bar.set_hatch("///")
+            bar.set_edgecolor("white")
     ax.axhline(0, color=GRAY, linewidth=.8)
     base_axis(ax, "real GDP growth (%)")
     ax.set_xticks(np.arange(1995, gdp["year"].max() + 1, 5))
     save(fig, "fig_real_gdp_growth.pdf")
+
+
+def plot_convergence(gdp_pc):
+    wide = gdp_pc.pivot(index="year", columns="country", values="value")
+    ratio = (wide["BR"] / wide["US"] * 100).dropna()
+    fig, ax = plt.subplots(figsize=(8.5, 3.55))
+    ax.plot(ratio.index, ratio, color=NAVY, linewidth=2.2)
+    ax.axvspan(1960, 1980, color=LIGHT, alpha=.8)
+    peak_year = int(ratio.idxmax())
+    ax.annotate(f"peak: {ratio.max():.0f}% in {peak_year}",
+                xy=(peak_year, ratio.max()), xytext=(peak_year + 3, ratio.max() + .6),
+                color=NAVY, fontsize=9, fontweight="bold",
+                arrowprops={"arrowstyle": "-", "color": GRAY, "linewidth": .8})
+    ax.text(1970, ratio.min() - .1, "catch-up", color=GRAY, fontsize=9, ha="center")
+    ax.text(1988, ratio.min() - .1, "divergence", color=GRAY, fontsize=9, ha="center")
+    ax.text(2011, ratio.min() - .1, "no sustained convergence", color=GRAY, fontsize=9, ha="center")
+    base_axis(ax, "Brazil GDP per person, % of U.S.")
+    ax.set_ylim(ratio.min() - 1.2, ratio.max() + 1.8)
+    save(fig, "fig_convergence.pdf")
 
 
 def plot_reserves(reserves):
@@ -267,6 +311,7 @@ Data were retrieved on {today}. Raw API responses, after date and numeric parsin
 
 | Figure | Source |
 |---|---|
+| Income convergence | World Bank, WDI indicator NY.GDP.PCAP.KD (GDP per capita, constant 2015 US$); Brazil as a share of the United States |
 | IPCA, 12 months | BCB SGS 433; monthly IPCA variation, compounded over 12 months |
 | IPCA before and after the Real | BCB SGS 433; separate vertical scales for the pre- and post-Real periods |
 | BRL per US dollar | BCB SGS 3692; selling rate at year-end |
@@ -283,6 +328,9 @@ Data were retrieved on {today}. Raw API responses, after date and numeric parsin
 | Armed territorial control | GENI/UFF and Instituto Fogo Cruzado, Mapa Historico dos Grupos Armados 2025 |
 
 BCB API endpoint: `https://api.bcb.gov.br/dados/serie/bcdata.sgs.CODE/dados`.
+World Bank API endpoint: `https://api.worldbank.org/v2/country/BRA;USA/indicator/NY.GDP.PCAP.KD`.
+
+Data cutoff: {today}.
 """.format(today=date.today().isoformat())
     (OUT / "SOURCES.md").write_text(text, encoding="utf-8")
 
@@ -299,7 +347,9 @@ def main():
     debt = bcb(13762, "2006-12-01", today, "gross_debt_pct_gdp")
     unemployment = bcb(24369, "2012-03-01", today, "unemployment")
     spread = bcb(20783, "2011-03-01", today, "credit_spread")
+    gdp_pc = worldbank("BRA;USA", "NY.GDP.PCAP.KD", "gdp_per_capita_constant_2015usd")
 
+    plot_convergence(gdp_pc)
     annual_ipca = plot_ipca(ipca)
     plot_ipca_pre_post_real(ipca)
     plot_fx(fx)

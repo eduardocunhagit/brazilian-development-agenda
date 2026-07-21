@@ -1,9 +1,10 @@
 # Data sources for the lecture figures
 
-Data were retrieved on 2026-07-20. Raw API responses, after date and numeric parsing, are stored as CSV files in `data/`.
+Data were retrieved on 2026-07-21. Raw API responses, after date and numeric parsing, are stored as CSV files in `data/`.
 
 | Figure | Source |
 |---|---|
+| Income convergence | World Bank, WDI indicator NY.GDP.PCAP.KD (GDP per capita, constant 2015 US$); Brazil as a share of the United States |
 | IPCA, 12 months | BCB SGS 433; monthly IPCA variation, compounded over 12 months |
 | IPCA before and after the Real | BCB SGS 433; separate vertical scales for the pre- and post-Real periods |
 | BRL per US dollar | BCB SGS 3692; selling rate at year-end |
@@ -20,3 +21,6 @@ Data were retrieved on 2026-07-20. Raw API responses, after date and numeric par
 | Armed territorial control | GENI/UFF and Instituto Fogo Cruzado, Mapa Historico dos Grupos Armados 2025 |
 
 BCB API endpoint: `https://api.bcb.gov.br/dados/serie/bcdata.sgs.CODE/dados`.
+World Bank API endpoint: `https://api.worldbank.org/v2/country/BRA;USA/indicator/NY.GDP.PCAP.KD`.
+
+Data cutoff: 2026-07-21.
