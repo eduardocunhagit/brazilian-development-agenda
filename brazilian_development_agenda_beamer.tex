@@ -325,15 +325,6 @@
   \question{Historical formation shaped Brazil's institutions, inequality, and productive structure.}
 \end{frame}
 
-\begin{frame}{Growth has been volatile since stabilization}
-  \datagraphic{fig_real_gdp_growth.pdf}
-  \begin{itemize}
-    \item Brazil combined strong expansions with three recessions after 1995; average growth weakened before the pandemic.
-    \item This volatility explains \emph{why} the convergence line you saw never trends upward for long.
-  \end{itemize}
-  \source{BCB SGS 7326, based on IBGE National Accounts. Annual real GDP growth; 2025 is the latest observation. Hatched bars mark contractions.}
-\end{frame}
-
 \begin{frame}{High inflation disrupts more than purchasing power}
   \datagraphic{fig_ipca_12m.pdf}
   \begin{itemize}
@@ -375,193 +366,19 @@
   \source{BCB SGS 433, monthly IPCA. Rates are compounded over twelve months. The two panels use different vertical scales.}
 \end{frame}
 
-\begin{frame}{The exchange rate links the macroeconomy to development}
-  \begin{center}
-  \begin{tikzpicture}[scale=.88,every node/.style={transform shape},node distance=.75cm and .9cm,
-    box/.style={rounded corners,fill=Sky,minimum width=3.1cm,minimum height=1.0cm,
-                align=center,font=\small\bfseries},
-    arr/.style={-{Latex[length=2mm]},thick,BrazilGreen}]
-    \node[box,fill=DeepNavy,text=white] (fx) {Exchange rate};
-    \node[box,above left=of fx] (prices) {Inflation and expectations};
-    \node[box,above right=of fx] (trade) {Exports, imports, and demand};
-    \node[box,below left=of fx] (finance) {Foreign-currency balance sheets};
-    \node[box,below right=of fx] (structure) {Sectoral profitability and investment};
-    \draw[arr] (fx) -- (prices);
-    \draw[arr] (fx) -- (trade);
-    \draw[arr] (fx) -- (finance);
-    \draw[arr] (fx) -- (structure);
-  \end{tikzpicture}
-  \end{center}
-  \vspace{.35cm}
-  \question{An exchange-rate regime allocates adjustment across the currency, interest rates, reserves, and domestic demand.}
-\end{frame}
-
-\begin{frame}{The policy trilemma: Brazil moved corners in 1999}
-  \begin{columns}[T,onlytextwidth]
-    \column{.46\textwidth}
-      \begin{center}
-      \resizebox{.95\linewidth}{!}{%
-      \begin{tikzpicture}
-        \coordinate (A) at (0,3.5);
-        \coordinate (B) at (-2.7,-.6);
-        \coordinate (C) at (2.7,-.6);
-        \draw[very thick,DeepNavy] (A)--(B)--(C)--cycle;
-        \node[above,align=center,font=\small\bfseries] at (A) {Stable exchange rate};
-        \node[below,align=center,font=\small\bfseries,text width=2.8cm] at (B) {Independent monetary policy};
-        \node[below,align=center,font=\small\bfseries,text width=2.3cm] at (C) {Capital mobility};
-        \fill[WarmGold] ($(A)!0.5!(C)$) circle (3.2pt);
-        \node[right=2pt,font=\scriptsize\bfseries,text=WarmGold!70!black] at ($(A)!0.5!(C)$) {1995--98};
-        \fill[BrazilGreen] ($(B)!0.5!(C)$) circle (3.2pt);
-        \node[below=3pt,font=\scriptsize\bfseries,text=BrazilGreen] at ($(B)!0.5!(C)$) {since 1999};
-      \end{tikzpicture}
-      }
-      \end{center}
-    \column{.51\textwidth}
-      \begin{itemize}
-        \item A country can fully pursue only two corners at once.
-        \item \textbf{1995--98:} a quasi-stable exchange rate with open capital markets --- so interest rates had to defend the currency.
-        \item \textbf{Since 1999:} monetary policy targets inflation and the currency floats.
-        \item Capital-flow measures change the constraint but do not remove it.
-      \end{itemize}
-  \end{columns}
-\end{frame}
-
-\begin{frame}{1994--1999: the exchange rate served as the nominal anchor}
-  \centering
-  \resizebox{.96\textwidth}{!}{%
-  \begin{tikzpicture}[x=1cm,y=1cm]
-    \draw[thick,MidGray] (.5,2.4) -- (14.8,2.4);
-    \foreach \x/\yr in {1/1968,5.2/1994,7.1/1995,9.4/1999,14.2/2026}{
-      \draw[thick,MidGray] (\x,2.15) -- (\x,2.65);
-      \node[font=\scriptsize\bfseries,below] at (\x,2.12) {\yr};}
-    \draw[line width=7pt,DeepNavy] (1,2.4) -- (5.2,2.4);
-    \draw[line width=7pt,WarmGold] (5.2,2.4) -- (7.1,2.4);
-    \draw[line width=7pt,Brick] (7.1,2.4) -- (9.4,2.4);
-    \draw[line width=7pt,BrazilGreen] (9.4,2.4) -- (14.2,2.4);
-    \node[align=center,font=\scriptsize,text width=3.5cm] at (3.1,3.35)
-      {Mini-devaluations, crawling adjustment, and multiple arrangements};
-    \node[align=center,font=\scriptsize,text width=2.1cm] at (6.1,1.25)
-      {Initial appreciation, then a one-sided ceiling};
-    \node[align=center,font=\scriptsize,text width=2.5cm] at (8.25,3.3)
-      {Crawling bands};
-    \node[align=center,font=\scriptsize,text width=4.0cm] at (11.8,1.25)
-      {Floating rate; intervention for market functioning};
-  \end{tikzpicture}
-  }
-  \vspace{.25cm}
-  \begin{minipage}{.96\textwidth}
-  \begin{itemize}
-    \item \key{Why it helped:} a stable currency price disciplined tradable-goods prices and coordinated expectations after hyperinflation.
-    \item \warn{Why pressure accumulated:} domestic inflation exceeded foreign inflation, the real appreciated, and high interest rates defended the corridor.
-    \item External shocks (Asia 1997, Russia 1998) repeatedly tested reserve and interest-rate defenses.
-  \end{itemize}
-  \end{minipage}
-  \source{BCB, 1999 FX Market Analysis and official FX-policy pages; dates before 1994 are a schematic summary.}
-\end{frame}
-
-\begin{frame}{Decision point: January 1999}
-  \question{It is January 12, 1999. Reserves are falling fast. You run the central bank. Do you raise interest rates again, devalue within the band, impose capital controls, or float the currency?}
-  \vspace{.4cm}
-  \begin{center}
-  \begin{tikzpicture}[node distance=.6cm,
-    date/.style={rounded corners,minimum width=3.5cm,minimum height=1.2cm,
-                 text width=3.2cm,align=center,font=\small}]
-    \node[date,fill=Sky] (d13) {\textbf{January 13}\\A wider ``diagonal band'' is announced};
-    \node[date,fill=WarmGray,right=of d13] (d15) {\textbf{January 15}\\BCB temporarily abstains from trading};
-    \node[date,fill=Sky,right=of d15] (d18) {\textbf{January 18}\\The interbank market sets the rate};
-    \draw[-{Latex[length=2mm]},very thick,Brick] (d13)--(d15);
-    \draw[-{Latex[length=2mm]},very thick,Brick] (d15)--(d18);
-  \end{tikzpicture}
-  \end{center}
-  \vspace{.35cm}
-  \begin{itemize}
-    \item None of the options was free: each allocates the adjustment to someone --- borrowers, exporters, taxpayers, or savers.
-    \item Formal inflation targeting followed in July 1999.
-  \end{itemize}
-  \source{BCB, \href{https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?numero=6565&tipo=Comunicado}{Communique 6,565}; BCB Working Paper 25.}
-\end{frame}
-
-\begin{frame}{1999 changed who absorbs the shock}
+\begin{frame}{1999 changed the stabilization mechanism}
+  \begin{center}\includegraphics[width=.90\textwidth,height=.43\textheight,keepaspectratio]{fig_brl_usd.pdf}\end{center}
   \begin{columns}[T,onlytextwidth]
     \column{.48\textwidth}
-      \begin{block}{Before: defend the parity}
-        Interest rates and reserves absorbed external shocks so the exchange-rate path could hold.
-      \end{block}
-      \vspace{.25cm}
-      \begin{block}{After: let the price move}
-        The currency absorbs part of the shock; the policy rate responds to the inflation outlook.
+      \begin{block}{1994--1998: defend the anchor}
+        The exchange rate anchored tradable prices; interest rates and reserves defended the band.
       \end{block}
     \column{.48\textwidth}
-      \begin{exampleblock}{Adjustment since 1999}
-        The market determines the exchange rate; the BCB intervenes only against disorderly conditions, not to set a level.
+      \begin{exampleblock}{1999 onward: let the currency adjust}
+        Reserve losses forced a float. The inflation target became the anchor, and the currency absorbed more shocks.
       \end{exampleblock}
-      \vspace{.25cm}
-      \question{The nominal anchor moved from the exchange rate to the inflation target.}
   \end{columns}
-  \source{BCB, \href{https://www.bcb.gov.br/en/financialstability/fxpolicy}{Foreign Exchange Policy}.}
-\end{frame}
-
-\begin{frame}{The exchange rate adjusted after the 1999 regime change}
-  \datagraphic{fig_brl_usd.pdf}
-  \begin{itemize}
-    \item The band limited adjustment before 1999; the float then absorbed domestic and external shocks.
-    \item A weaker real is not a development policy by itself: relative prices, balance sheets, and persistence matter.
-  \end{itemize}
-  \source{BCB SGS 3692. BRL per US dollar, selling rate at year-end; shaded period marks the explicit-band era.}
-\end{frame}
-
-\begin{frame}{A depreciation reaches inflation through several margins}
-  \begin{center}
-  \begin{tikzpicture}[node distance=.55cm and .65cm,
-    box/.style={rounded corners,fill=Sky,minimum height=.85cm,text width=2.35cm,
-                align=center,font=\scriptsize},
-    arr/.style={-{Latex[length=1.8mm]},thick,BrazilGreen}]
-    \node[box,fill=DeepNavy,text=white] (dep) {Nominal depreciation};
-    \node[box,right=of dep] (imports) {Imported consumer and capital goods};
-    \node[box,above right=of imports] (inputs) {Imported inputs and energy};
-    \node[box,below right=of imports] (exports) {Export parity and domestic supply};
-    \node[box,right=2.0cm of imports,fill=WarmGray] (prices) {Producer and consumer prices};
-    \node[box,right=of prices,fill=WarmGold!35] (expect) {Expectations, wages, and second-round effects};
-    \draw[arr] (dep)--(imports);
-    \draw[arr] (dep)--(inputs);
-    \draw[arr] (dep)--(exports);
-    \draw[arr] (imports)--(prices);
-    \draw[arr] (inputs)--(prices);
-    \draw[arr] (exports)--(prices);
-    \draw[arr] (prices)--(expect);
-  \end{tikzpicture}
-  \end{center}
-  \vspace{.3cm}
-  \begin{itemize}
-    \item A 2026 BCB exercise: a 10\% depreciation adds about 1.0 point to consumer inflation over 12 months --- more in crises, when expectations are unanchored, less in calm times.
-    \item Monetary policy responds to the inflation forecast, not mechanically to the exchange rate.
-  \end{itemize}
-  \source{BCB, March 2026 Monetary Policy Report, pass-through box; BCB Working Papers 5, 181, and 473. Estimates are episode-dependent.}
-\end{frame}
-
-\begin{frame}{A weaker currency has ambiguous development effects}
-  \small
-  \begin{tabularx}{\textwidth}{>{\bfseries}p{2.6cm}XX}
-    \toprule
-    Who & Possible gain from depreciation & Possible cost \\
-    \midrule
-    Exporters & Higher domestic-currency revenue & Imported inputs and financing become costlier \\
-    Households & Employment may shift toward tradables & Food, fuel, and durable goods become dearer \\
-    Productivity & Entry into tradables may support learning & Protection can preserve low-productivity firms \\
-    \bottomrule
-  \end{tabularx}
-  \vspace{.4cm}
-  \question{The answer depends on balance sheets, imported-input intensity, credibility, and persistence.}
-  \source{Full five-actor version, including firms and the public sector, in the appendix.}
-\end{frame}
-
-\begin{frame}{Reserve accumulation changed Brazil's external buffer}
-  \datagraphic{fig_reserves.pdf}
-  \begin{itemize}
-    \item Reserves insure against external funding stops and reduce foreign-currency liquidity risk.
-    \item The stock rose sharply before the global financial crisis and has remained large.
-  \end{itemize}
-  \source{BCB SGS 13621. International reserves, cash concept; last daily observation of each month, US\$ billion.}
+  \source{BCB SGS 3692; BCB, 1999 FX Market Analysis and Foreign Exchange Policy.}
 \end{frame}
 
 \begin{frame}{The post-1999 framework combines adjustment and anchors}
@@ -586,6 +403,15 @@
     \item The pieces are complements: fiscal risk affects interest rates and the currency.
     \item The float absorbs shocks; monetary credibility limits pass-through.
   \end{itemize}
+\end{frame}
+
+\begin{frame}{Stability did not restore sustained growth}
+  \datagraphic{fig_real_gdp_growth.pdf}
+  \begin{itemize}
+    \item Brazil combined strong expansions with three recessions after 1995; average growth weakened before the pandemic.
+    \item The macro regime reduced one source of crisis, but the convergence line still failed to trend upward.
+  \end{itemize}
+  \source{BCB SGS 7326, based on IBGE National Accounts. Annual real GDP growth; 2025 is the latest observation. Hatched bars mark contractions.}
 \end{frame}
 
 \begin{frame}{Brazil's fiscal problem is about composition and credibility}
@@ -1346,6 +1172,66 @@
     \item A narrow corridor can strengthen the anchor but invites one-way bets when fundamentals diverge.
   \end{itemize}
   \source{Stylized diagram; BCB, 1999 Q1 FX Market Analysis.}
+\end{frame}
+
+\begin{frame}{Backup: the policy trilemma explains the 1999 choice}
+  \begin{columns}[T,onlytextwidth]
+    \column{.31\textwidth}
+      \begin{block}{Stable exchange rate}
+        Authorities commit resources to limiting currency movements.
+      \end{block}
+    \column{.31\textwidth}
+      \begin{block}{Independent monetary policy}
+        Interest rates respond to domestic inflation and activity.
+      \end{block}
+    \column{.31\textwidth}
+      \begin{block}{Capital mobility}
+        Funds can enter or leave in response to returns and risk.
+      \end{block}
+  \end{columns}
+  \vspace{.45cm}
+  \begin{itemize}
+    \item A country can fully pursue only two objectives at once.
+    \item In 1995--98, interest rates defended the exchange rate. Since 1999, the currency floats and monetary policy targets inflation.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Backup: depreciation reaches inflation through several margins}
+  \begin{center}
+  \begin{tikzpicture}[node distance=.55cm and .65cm,
+    box/.style={rounded corners,fill=Sky,minimum height=.85cm,text width=2.35cm,
+                align=center,font=\scriptsize},
+    arr/.style={-{Latex[length=1.8mm]},thick,BrazilGreen}]
+    \node[box,fill=DeepNavy,text=white] (dep) {Nominal depreciation};
+    \node[box,right=of dep] (imports) {Imported consumer and capital goods};
+    \node[box,above right=of imports] (inputs) {Imported inputs and energy};
+    \node[box,below right=of imports] (exports) {Export parity and domestic supply};
+    \node[box,right=2.0cm of imports,fill=WarmGray] (prices) {Producer and consumer prices};
+    \node[box,right=of prices,fill=WarmGold!35] (expect) {Expectations, wages, and second-round effects};
+    \draw[arr] (dep)--(imports);
+    \draw[arr] (dep)--(inputs);
+    \draw[arr] (dep)--(exports);
+    \draw[arr] (imports)--(prices);
+    \draw[arr] (inputs)--(prices);
+    \draw[arr] (exports)--(prices);
+    \draw[arr] (prices)--(expect);
+  \end{tikzpicture}
+  \end{center}
+  \vspace{.3cm}
+  \begin{itemize}
+    \item A 2026 BCB exercise: a 10\% depreciation adds about 1.0 point to consumer inflation over 12 months. The estimate varies across episodes.
+    \item Monetary policy responds to the inflation forecast, not mechanically to the exchange rate.
+  \end{itemize}
+  \source{BCB, March 2026 Monetary Policy Report, pass-through box; BCB Working Papers 5, 181, and 473.}
+\end{frame}
+
+\begin{frame}{Backup: reserve accumulation changed Brazil's external buffer}
+  \datagraphic{fig_reserves.pdf}
+  \begin{itemize}
+    \item Reserves insure against external funding stops and reduce foreign-currency liquidity risk.
+    \item The stock rose sharply before the global financial crisis and has remained large.
+  \end{itemize}
+  \source{BCB SGS 13621. International reserves, cash concept; last daily observation of each month, US\$ billion.}
 \end{frame}
 
 \begin{frame}{Backup: monetary policy reacts to the inflation outlook}
