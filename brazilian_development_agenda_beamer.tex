@@ -130,8 +130,24 @@
   \source{World Bank, World Development Indicators, GDP per capita in constant 2015 US\$ (NY.GDP.PCAP.KD), 1960--2025.}
 \end{frame}
 
+\begin{frame}{Brazil's position raises two questions}
+  \vspace{.35cm}
+  \begin{columns}[T,onlytextwidth]
+    \column{.47\textwidth}
+      \begin{block}{Part I: Why are we like this?}
+        How did macroeconomic instability, slavery, rapid urbanization, and natural resources shape institutions, inequality, and production?
+      \end{block}
+    \column{.47\textwidth}
+      \begin{exampleblock}{Part II: Where do we go from here?}
+        Which structural problems must Brazil solve, and which productive capabilities can it expand?
+      \end{exampleblock}
+  \end{columns}
+  \vspace{.55cm}
+  \question{The development agenda begins with Brazil's history and ends with a choice about its capabilities.}
+\end{frame}
+
 % Development path
-\begin{frame}{Development is neither linear nor irreversible}
+\begin{frame}{Where is Brazil relative to other countries?}
   \begin{columns}[T,onlytextwidth]
     \column{.31\textwidth}
       \begin{block}{Countries can fall behind}
@@ -149,22 +165,6 @@
   \vspace{.55cm}
   \question{Why has Brazil remained in the middle, and what would be required to complete the transition?}
   \source{World Bank, World Development Indicators. Country examples describe development trajectories, not formal income-group classifications.}
-\end{frame}
-
-\begin{frame}{Brazil's position raises two questions}
-  \vspace{.35cm}
-  \begin{columns}[T,onlytextwidth]
-    \column{.47\textwidth}
-      \begin{block}{Part I: Why are we like this?}
-        How did macroeconomic instability, slavery, rapid urbanization, and natural resources shape institutions, inequality, and production?
-      \end{block}
-    \column{.47\textwidth}
-      \begin{exampleblock}{Part II: Where do we go from here?}
-        Which structural problems must Brazil solve, and which productive capabilities can it expand?
-      \end{exampleblock}
-  \end{columns}
-  \vspace{.55cm}
-  \question{The development agenda begins with Brazil's history and ends with a choice about its capabilities.}
 \end{frame}
 
 % Map (new)
@@ -191,84 +191,27 @@
       \end{tikzpicture}}
       \end{center}
     \column{.40\textwidth}
+      \small
       \begin{itemize}
-        \item Population and output concentrate near the coast; the Southeast alone produces about half of GDP.
-        \item The Northeast holds 27\% of the people and 14\% of the output --- the largest regional income gap.
-        \item The Amazon and the Cerrado make land use, agriculture, and climate part of the growth agenda.
-        \item Keep this map in mind: the binding constraint differs by place.
+        \setlength\itemsep{.22cm}
+        \item \key{8.5 million km$^2$:} a continental territory.
+        \item \key{212 million people:} more than Germany, France, and Spain combined.
+        \item \key{US\$ 2.19 trillion GDP:} roughly the scale of Canada's economy.
+        \item \key{Gini 0.506:} the lowest value in the PNAD series, but inequality remains high.
       \end{itemize}
   \end{columns}
-  \source{IBGE, 2022 Population Census and Regional Accounts 2021; shares rounded.}
-\end{frame}
-
-% Timeline (new)
-\begin{frame}{Six moments explain Brazil's starting point}
-  \begin{center}
-  \resizebox{.97\textwidth}{!}{%
-  \begin{tikzpicture}[x=1cm,y=1cm,
-    ev/.style={rounded corners,align=center,font=\scriptsize,text width=2.35cm,inner sep=4pt}]
-    \draw[very thick,MidGray] (0.4,0) -- (14.6,0);
-    \foreach \x in {1.5,4.0,6.2,8.4,10.6,13.2}{\fill[BrazilGreen] (\x,0) circle (2.6pt);}
-    \node[ev,fill=Sky,above=.35cm] at (1.5,0)
-      {\textbf{1930s--1980}\\State-led industrialization; Brazil urbanizes and grows among the fastest worldwide};
-    \node[ev,fill=WarmGray,below=.35cm] at (4.0,0)
-      {\textbf{1980s}\\Debt crisis and near-hyperinflation: the ``lost decade''};
-    \node[ev,fill=Sky,above=.35cm] at (6.2,0)
-      {\textbf{1988}\\New Constitution: rights, social spending, and a three-level federation};
-    \node[ev,fill=WarmGray,below=.35cm] at (8.4,0)
-      {\textbf{1994}\\Real Plan ends chronic high inflation};
-    \node[ev,fill=Sky,above=.35cm] at (10.6,0)
-      {\textbf{1999}\\Floating exchange rate and inflation targeting; fiscal rules follow};
-    \node[ev,fill=WarmGray,below=.35cm] at (13.2,0)
-      {\textbf{2003--today}\\Commodity boom and social gains; 2014--16 recession; pandemic; recent reforms};
-  \end{tikzpicture}}
-  \end{center}
-  \vspace{.2cm}
-  \begin{itemize}
-    \item The lecture concentrates on the period after 1994, but the achievements and scars of this longer history set the stage.
-  \end{itemize}
+  \source{IBGE, 2022 Census, Regional Accounts 2021, and PNAD Continuous 2024; World Bank, WDI 2024. Values rounded.}
 \end{frame}
 
 % Development broader than GDP
-\begin{frame}{Development is broader than current GDP growth}
-  \begin{columns}[T,onlytextwidth]
-    \column{.24\textwidth}\begin{block}{Income}\centering Income per person\end{block}
-    \column{.24\textwidth}\begin{block}{Productivity}\centering Output per worker\end{block}
-    \column{.24\textwidth}\begin{block}{Inclusion}\centering Mobility and access\end{block}
-    \column{.24\textwidth}\begin{block}{Resilience}\centering Climate and institutions\end{block}
-  \end{columns}
-  \vspace{.35cm}
-  \[
-    \underbrace{\frac{Y}{N}}_{\substack{\text{income}\\\text{per person}}}
-    =\underbrace{\frac{Y}{L}}_{\substack{\text{output}\\\text{per worker}}}
-    \times
-    \underbrace{\frac{L}{N}}_{\substack{\text{workers}\\\text{per person}}}
-    \qquad
-    \muted{\text{\small $Y$ = total income, $L$ = workers, $N$ = population}}
-  \]
+\begin{frame}{What exactly is economic development?}
   \begin{itemize}
-    \item Productivity determines how much each worker produces.
-    \item Demography and labor-force participation determine how many people work.
-    \item Distribution determines who can invest in skills and participate.
+    \setlength\itemsep{.35cm}
+    \item \key{Income:} a lasting rise in material living standards.
+    \item \key{Productivity:} more output from each worker and unit of capital.
+    \item \key{Inclusion:} broader access to education, formal work, services, and mobility.
+    \item \key{Resilience:} institutions and infrastructure that withstand fiscal, external, and climate shocks.
   \end{itemize}
-\end{frame}
-
-% Glossary (new)
-\begin{frame}{Six terms you will hear all afternoon}
-  \small
-  \begin{tabularx}{\textwidth}{>{\bfseries}p{3.6cm}X}
-    \toprule
-    Income convergence & A poorer country grows faster than rich ones and closes the gap in income per person. \\
-    Nominal anchor & The variable a central bank commits to (an exchange rate, an inflation target) so that everyone's prices and wages can coordinate on it. \\
-    Pass-through & How much of a currency depreciation ends up in consumer prices. \\
-    Primary balance & Government revenue minus spending, \emph{excluding} interest payments. \\
-    Reallocation & Workers and capital moving from less productive firms to more productive ones. \\
-    Contestability & Markets where new firms can credibly enter and challenge incumbents. \\
-    \bottomrule
-  \end{tabularx}
-  \vspace{.25cm}
-
-  \muted{\small Everything else --- URV, CBS/IBS, Selic --- is defined when it appears.}
 \end{frame}
 
 % Roadmap
@@ -293,13 +236,12 @@
         \end{itemize}
       \end{exampleblock}
   \end{columns}
-  \vspace{.35cm}
-  \muted{\small Backup slides contain formulas, full tables, measurement details, and references.}
 \end{frame}
 
 % =============================================================================
 % Part I - Why are we like this?
 % =============================================================================
+\clearpage
 \sectionframe{Part I -- Why are we like this?}{History, institutions, inequality, and production}
 
 \begin{frame}{Four historical forces still shape Brazil today}
@@ -317,101 +259,86 @@
         Cities expanded faster than housing, transport, sanitation, and local state capacity.
       \end{block}
     \column{.23\textwidth}
-      \begin{exampleblock}{Natural resources}
+      \begin{block}{Natural resources}
         Land, energy, and minerals created global advantages and recurring governance conflicts.
-      \end{exampleblock}
+      \end{block}
   \end{columns}
   \vspace{.45cm}
   \question{Historical formation shaped Brazil's institutions, inequality, and productive structure.}
 \end{frame}
 
-\begin{frame}{High inflation disrupts more than purchasing power}
-  \datagraphic{fig_ipca_12m.pdf}
-  \begin{itemize}
-    \item Stabilization restored price information and lengthened planning horizons.
-    \item The later spikes show why credibility, fiscal policy, and the exchange rate still interact.
-  \end{itemize}
-  \source{BCB SGS 433, monthly IPCA. Twelve-month rates are compounded from the official monthly series.}
-\end{frame}
-
-\begin{frame}{The Real Plan changed the unit of account before the currency}
-  \begin{center}
-  \begin{tikzpicture}[node distance=.7cm,
-    stage/.style={rounded corners,minimum width=3.65cm,minimum height=1.6cm,
-                  align=center,text width=3.4cm,font=\small,draw=none}]
-    \node[stage,fill=Sky] (fiscal) {\textbf{1. Fiscal measures}\\Emergency flexibility and adjustment};
-    \node[stage,fill=WarmGray,right=of fiscal] (urv) {\textbf{2. URV}\\A stable unit of account coexisted with the old means of payment};
-    \node[stage,fill=Sky,right=of urv] (real) {\textbf{3. The real}\\BRL became the currency on July 1, 1994};
-    \draw[-{Latex[length=2.5mm]},very thick,BrazilGreen] (fiscal) -- (urv);
-    \draw[-{Latex[length=2.5mm]},very thick,BrazilGreen] (urv) -- (real);
-  \end{tikzpicture}
-  \end{center}
-  \vspace{.35cm}
-  \begin{beamercolorbox}[rounded=true,sep=.6em,wd=\textwidth]{exampleblock body}
-    \key{Concrete example:} a store listed rice at \textbf{URV 5} for months while the price tag in cruzeiros reais changed almost daily with the URV's dollar-linked value. On July 1, 1994, ``URV 5'' simply became \textbf{R\$5}.
-  \end{beamercolorbox}
-  \vspace{.3cm}
-  \begin{itemize}
-    \item The URV coordinated prices and expectations without an overnight freeze --- an institutional solution, not just a new banknote.
-  \end{itemize}
-  \source{BCB, \href{https://www.bcb.gov.br/en/monetarypolicy/realplan}{The Real Plan}.}
-\end{frame}
-
-\begin{frame}{The Real Plan produced a discrete break in inflation}
+\begin{frame}{Before 1994, inflation made the economy unstable}
   \datagraphic{fig_ipca_pre_post_real.pdf}
   \begin{itemize}
-    \item Twelve-month inflation reached thousands of percent before July 1994.
-    \item From July 1995 onward, every month in the twelve-month window uses prices quoted under the Real.
+    \item Prices changed faster than wages, contracts, and public budgets could adjust; twelve-month inflation reached thousands of percent.
+    \item Stabilization means a durable break from this regime, not the absence of every later inflation spike.
   \end{itemize}
   \source{BCB SGS 433, monthly IPCA. Rates are compounded over twelve months. The two panels use different vertical scales.}
 \end{frame}
 
-\begin{frame}{1999 changed the stabilization mechanism}
-  \begin{center}\includegraphics[width=.90\textwidth,height=.43\textheight,keepaspectratio]{fig_brl_usd.pdf}\end{center}
-  \begin{columns}[T,onlytextwidth]
-    \column{.48\textwidth}
-      \begin{block}{1994--1998: defend the anchor}
-        The exchange rate anchored tradable prices; interest rates and reserves defended the band.
-      \end{block}
-    \column{.48\textwidth}
-      \begin{exampleblock}{1999 onward: let the currency adjust}
-        Reserve losses forced a float. The inflation target became the anchor, and the currency absorbed more shocks.
-      \end{exampleblock}
-  \end{columns}
-  \source{BCB SGS 3692; BCB, 1999 FX Market Analysis and Foreign Exchange Policy.}
+\begin{frame}{Stabilization restored a usable price system}
+  \datagraphic{fig_ipca_12m.pdf}
+  \begin{itemize}
+    \item Stable prices restored information and lengthened the horizon for household, firm, and government decisions.
+    \item Later spikes show that price stability still depends on credible fiscal and monetary institutions.
+  \end{itemize}
+  \source{BCB SGS 433, monthly IPCA. Twelve-month rates are compounded from the official monthly series.}
 \end{frame}
 
-\begin{frame}{The post-1999 framework combines adjustment and anchors}
+\begin{frame}{How did Brazil stabilize? The Real Plan}
   \begin{center}
-  \begin{tikzpicture}[node distance=.6cm and .7cm,
-    box/.style={rounded corners,minimum height=1.05cm,text width=3.4cm,
-                align=center,font=\small\bfseries,fill=Sky},
-    arr/.style={-{Latex[length=2mm]},thick,BrazilGreen}]
-    \node[box,fill=DeepNavy,text=white] (core) {Macro stability};
-    \node[box,above left=of core] (fx) {Floating exchange rate};
-    \node[box,above right=of core] (it) {Inflation target};
-    \node[box,below left=of core] (fisc) {Fiscal rules and debt management};
-    \node[box,below right=of core] (buffer) {Reserves and prudential regulation};
-    \draw[arr] (fx)--(core);
-    \draw[arr] (it)--(core);
-    \draw[arr] (fisc)--(core);
-    \draw[arr] (buffer)--(core);
+  \begin{tikzpicture}[node distance=.7cm,
+    stage/.style={rounded corners,minimum width=3.65cm,minimum height=1.6cm,
+                  align=center,text width=3.4cm,font=\small,draw=none}]
+    \node[stage,fill=Sky] (fiscal) {\textbf{1. Fiscal measures}\\Emergency budget flexibility and adjustment};
+    \node[stage,fill=WarmGray,right=of fiscal] (urv) {\textbf{2. URV}\\A dollar-linked unit of account coordinated prices};
+    \node[stage,fill=Sky,right=of urv] (real) {\textbf{3. The real}\\The new currency began on July 1, 1994};
+    \draw[-{Latex[length=2.5mm]},very thick,BrazilGreen] (fiscal) -- (urv);
+    \draw[-{Latex[length=2.5mm]},very thick,BrazilGreen] (urv) -- (real);
   \end{tikzpicture}
   \end{center}
-  \vspace{.35cm}
+  \vspace{.3cm}
   \begin{itemize}
-    \item The pieces are complements: fiscal risk affects interest rates and the currency.
-    \item The float absorbs shocks; monetary credibility limits pass-through.
+    \item The gradual conversion broke inflation inertia without a surprise price freeze.
+    \item Former PUC-Rio faculty played a central role in developing and implementing the plan.
   \end{itemize}
+  \source{BCB, \href{https://www.bcb.gov.br/en/monetarypolicy/realplan}{The Real Plan}; PUC-Rio Department of Economics, institutional history.}
 \end{frame}
 
-\begin{frame}{Stability did not restore sustained growth}
+\begin{frame}{Growth after stabilization has remained volatile}
   \datagraphic{fig_real_gdp_growth.pdf}
   \begin{itemize}
     \item Brazil combined strong expansions with three recessions after 1995; average growth weakened before the pandemic.
     \item The macro regime reduced one source of crisis, but the convergence line still failed to trend upward.
   \end{itemize}
   \source{BCB SGS 7326, based on IBGE National Accounts. Annual real GDP growth; 2025 is the latest observation. Hatched bars mark contractions.}
+\end{frame}
+
+\begin{frame}{Six moments place stabilization in a longer history}
+  \begin{center}
+  \resizebox{.97\textwidth}{!}{%
+  \begin{tikzpicture}[x=1cm,y=1cm,
+    ev/.style={rounded corners,align=center,font=\scriptsize,text width=2.35cm,inner sep=4pt}]
+    \draw[very thick,MidGray] (0.4,0) -- (14.6,0);
+    \foreach \x in {1.5,4.0,6.2,8.4,10.6,13.2}{\fill[BrazilGreen] (\x,0) circle (2.6pt);}
+    \node[ev,fill=Sky,above=.35cm] at (1.5,0)
+      {\textbf{1930s--1980}\\State-led industrialization; Brazil urbanizes and grows among the fastest worldwide};
+    \node[ev,fill=WarmGray,below=.35cm] at (4.0,0)
+      {\textbf{1980s}\\Debt crisis and near-hyperinflation: the ``lost decade''};
+    \node[ev,fill=Sky,above=.35cm] at (6.2,0)
+      {\textbf{1988}\\New Constitution: rights, social spending, and a three-level federation};
+    \node[ev,fill=WarmGray,below=.35cm] at (8.4,0)
+      {\textbf{1994}\\Real Plan ends chronic high inflation};
+    \node[ev,fill=Sky,above=.35cm] at (10.6,0)
+      {\textbf{1999}\\Floating exchange rate and inflation targeting; fiscal rules follow};
+    \node[ev,fill=WarmGray,below=.35cm] at (13.2,0)
+      {\textbf{2003--today}\\Commodity boom and social gains; 2014--16 recession; pandemic; recent reforms};
+  \end{tikzpicture}}
+  \end{center}
+  \vspace{.2cm}
+  \begin{itemize}
+    \item Stabilization is one turn in a longer institutional history that still shapes Brazil's constraints and capabilities.
+  \end{itemize}
 \end{frame}
 
 \begin{frame}{Brazil's fiscal problem is about composition and credibility}
@@ -1122,6 +1049,62 @@
 % =============================================================================
 \appendix
 \sectionframe{Appendix}{Backup slides: formulas, full tables, measurement, and references}
+
+\begin{frame}{Backup: six key terms}
+  \small
+  \begin{tabularx}{\textwidth}{>{\bfseries}p{3.6cm}X}
+    \toprule
+    Income convergence & A poorer country grows faster than rich ones and closes the gap in income per person. \\
+    Nominal anchor & The variable a central bank commits to (an exchange rate, an inflation target) so that everyone's prices and wages can coordinate on it. \\
+    Pass-through & How much of a currency depreciation ends up in consumer prices. \\
+    Primary balance & Government revenue minus spending, \emph{excluding} interest payments. \\
+    Reallocation & Workers and capital moving from less productive firms to more productive ones. \\
+    Contestability & Markets where new firms can credibly enter and challenge incumbents. \\
+    \bottomrule
+  \end{tabularx}
+  \vspace{.25cm}
+  \muted{\small URV, CBS/IBS, and Selic are defined when they appear.}
+\end{frame}
+
+\begin{frame}{Backup: the 1999 regime change}
+  \vspace{.25cm}
+  \begin{center}\includegraphics[width=.82\textwidth,height=.37\textheight,keepaspectratio]{fig_brl_usd.pdf}\end{center}
+  \begin{columns}[T,onlytextwidth]
+    \column{.48\textwidth}
+      \begin{block}{1994--1998: defend the anchor}
+        The exchange rate anchored tradable prices; interest rates and reserves defended the band.
+      \end{block}
+    \column{.48\textwidth}
+      \begin{exampleblock}{1999 onward: let the currency adjust}
+        Reserve losses forced a float. The inflation target became the anchor, and the currency absorbed more shocks.
+      \end{exampleblock}
+  \end{columns}
+  \source{BCB SGS 3692; BCB, 1999 FX Market Analysis and Foreign Exchange Policy.}
+\end{frame}
+
+\begin{frame}{Backup: the post-1999 macro framework}
+  \begin{center}
+  \begin{tikzpicture}[node distance=.6cm and .7cm,
+    box/.style={rounded corners,minimum height=1.05cm,text width=3.4cm,
+                align=center,font=\small\bfseries,fill=Sky},
+    arr/.style={-{Latex[length=2mm]},thick,BrazilGreen}]
+    \node[box,fill=DeepNavy,text=white] (core) {Macro stability};
+    \node[box,above left=of core] (fx) {Floating exchange rate};
+    \node[box,above right=of core] (it) {Inflation target};
+    \node[box,below left=of core] (fisc) {Fiscal rules and debt management};
+    \node[box,below right=of core] (buffer) {Reserves and prudential regulation};
+    \draw[arr] (fx)--(core);
+    \draw[arr] (it)--(core);
+    \draw[arr] (fisc)--(core);
+    \draw[arr] (buffer)--(core);
+  \end{tikzpicture}
+  \end{center}
+  \vspace{.35cm}
+  \begin{itemize}
+    \item The pieces are complements: fiscal risk affects interest rates and the currency.
+    \item The float absorbs shocks; monetary credibility limits pass-through.
+  \end{itemize}
+\end{frame}
 
 \begin{frame}{Backup: nominal and real exchange rates answer different questions}
   \begin{columns}[T,onlytextwidth]

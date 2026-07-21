@@ -178,12 +178,14 @@ def plot_convergence(gdp_pc):
     peak_year = int(ratio.idxmax())
     ax.annotate(f"peak: {ratio.max():.0f}% in {peak_year}",
                 xy=(peak_year, ratio.max()), xytext=(peak_year + 3, ratio.max() + .6),
-                color=NAVY, fontsize=9, fontweight="bold",
+                color=NAVY, fontsize=11, fontweight="bold",
                 arrowprops={"arrowstyle": "-", "color": GRAY, "linewidth": .8})
-    ax.text(1970, ratio.min() - .1, "catch-up", color=GRAY, fontsize=9, ha="center")
-    ax.text(1988, ratio.min() - .1, "divergence", color=GRAY, fontsize=9, ha="center")
-    ax.text(2011, ratio.min() - .1, "no sustained convergence", color=GRAY, fontsize=9, ha="center")
+    ax.text(1970, ratio.min() - .1, "catch-up", color=GRAY, fontsize=11, ha="center")
+    ax.text(1988, ratio.min() - .1, "divergence", color=GRAY, fontsize=11, ha="center")
+    ax.text(2011, ratio.min() - .1, "no sustained convergence", color=GRAY, fontsize=11, ha="center")
     base_axis(ax, "Brazil GDP per person, % of U.S.")
+    ax.tick_params(labelsize=11)
+    ax.set_ylabel("Brazil GDP per person, % of U.S.", color=NAVY, fontsize=12)
     ax.set_ylim(ratio.min() - 1.2, ratio.max() + 1.8)
     save(fig, "fig_convergence.pdf")
 
