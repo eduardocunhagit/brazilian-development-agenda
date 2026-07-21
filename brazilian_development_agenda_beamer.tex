@@ -83,6 +83,21 @@
         at ([xshift=.29\paperwidth,yshift=-.10\paperheight]current page.west) {#2};
     \end{tikzpicture}
   \end{frame}}
+\newcommand{\subsectionframe}[2]{%
+  \begin{frame}[plain]
+    \begin{tikzpicture}[remember picture,overlay]
+      \fill[WarmGray] (current page.south west) rectangle (current page.north east);
+      \fill[BrazilGreen] (current page.south west) rectangle
+        ([yshift=.10\paperheight]current page.south east);
+      \node[anchor=west,text=BrazilGreen,font=\bfseries\large]
+        at ([xshift=.09\paperwidth,yshift=.12\paperheight]current page.west) {PART I};
+      \node[anchor=west,text=DeepNavy,font=\bfseries\fontsize{27}{31}\selectfont,
+            text width=.80\paperwidth]
+        at ([xshift=.09\paperwidth,yshift=.01\paperheight]current page.west) {#1};
+      \node[anchor=west,text=MidGray,font=\large,text width=.76\paperwidth]
+        at ([xshift=.09\paperwidth,yshift=-.13\paperheight]current page.west) {#2};
+    \end{tikzpicture}
+  \end{frame}}
 
 \title{Brazil's Economic\\Development Agenda}
 \subtitle{Macroeconomic stability, productivity, state capacity, and inclusion}
@@ -167,7 +182,54 @@
   \source{World Bank, World Development Indicators. Country examples describe development trajectories, not formal income-group classifications.}
 \end{frame}
 
-% Map (new)
+\begin{frame}{Brazil is a continental-scale country}
+  \begin{columns}[T,onlytextwidth]
+    \column{.67\textwidth}
+      \begin{center}
+        \includegraphics[width=.92\linewidth,height=.57\textheight,keepaspectratio]{brazil_europe_overlay.png}
+      \end{center}
+    \column{.30\textwidth}
+      \vspace{.25cm}
+      \begin{center}
+        {\fontsize{26}{30}\selectfont\color{BrazilGreen}\textbf{8.5 million}}\\[-.05cm]
+        {\large km$^2$}
+      \end{center}
+      \vspace{.25cm}
+      \begin{itemize}
+        \item Scale raises the cost of connecting people, firms, and public services.
+        \item Climate, geography, and settlement patterns differ sharply within the same country.
+      \end{itemize}
+  \end{columns}
+  \source{IBGE, Territorial Areas 2025. The geographic overlay is illustrative.}
+\end{frame}
+
+\begin{frame}{A large economy with concentrated income}
+  \begin{columns}[T,onlytextwidth]
+    \column{.55\textwidth}
+      \begin{block}{National scale, 2024}
+        {\fontsize{22}{26}\selectfont\color{DeepNavy}\textbf{212.6 million people}}\\[.15cm]
+        {\fontsize{22}{26}\selectfont\color{DeepNavy}\textbf{US\$2.19 trillion GDP}}
+      \end{block}
+      \vspace{.25cm}
+      \begin{itemize}
+        \item More people than Germany, France, and Spain combined.
+        \item An economy roughly the size of Canada's.
+      \end{itemize}
+    \column{.41\textwidth}
+      \begin{exampleblock}{Income Gini, 2024}
+        \centering
+        {\fontsize{38}{42}\selectfont\color{Brick}\textbf{0.506}}\\[.1cm]
+        \small 0 means equal incomes; 1 means one person receives all income.
+      \end{exampleblock}
+      \vspace{.15cm}
+      \muted{\small The lowest value in the PNAD Continuous series, but still a high level of income concentration.}
+  \end{columns}
+  \vspace{.15cm}
+  \question{Brazil has the scale to build capabilities, but access to them remains unequal.}
+  \source{IBGE, Population Estimates and PNAD Continuous 2024; World Bank, WDI.}
+\end{frame}
+
+% Regional context
 \begin{frame}{One country, five very different economies}
   \begin{columns}[T,onlytextwidth]
     \column{.58\textwidth}
@@ -194,13 +256,13 @@
       \small
       \begin{itemize}
         \setlength\itemsep{.22cm}
-        \item \key{8.5 million km$^2$:} a continental territory.
-        \item \key{212 million people:} more than Germany, France, and Spain combined.
-        \item \key{US\$ 2.19 trillion GDP:} roughly the scale of Canada's economy.
-        \item \key{Gini 0.506:} the lowest value in the PNAD series, but inequality remains high.
+        \item \key{Southeast:} 42\% of the population and 52\% of GDP.
+        \item \key{North and Northeast:} 35\% of the population and 20\% of GDP.
+        \item \key{Center-West:} 10\% of GDP and a major agricultural frontier.
+        \item National policies meet different infrastructure, demographics, and local state capacity.
       \end{itemize}
   \end{columns}
-  \source{IBGE, 2022 Census, Regional Accounts 2021, and PNAD Continuous 2024; World Bank, WDI 2024. Values rounded.}
+  \source{IBGE, 2022 Census and Regional Accounts 2021. Values rounded.}
 \end{frame}
 
 % Development broader than GDP
@@ -267,6 +329,8 @@
   \question{Historical formation shaped Brazil's institutions, inequality, and productive structure.}
 \end{frame}
 
+\subsectionframe{Macroeconomic stability}{How Brazil stopped chronic inflation --- and why stabilization did not guarantee convergence}
+
 \begin{frame}{Before 1994, inflation made the economy unstable}
   \datagraphic{fig_ipca_pre_post_real.pdf}
   \begin{itemize}
@@ -305,15 +369,6 @@
   \source{BCB, \href{https://www.bcb.gov.br/en/monetarypolicy/realplan}{The Real Plan}; PUC-Rio Department of Economics, institutional history.}
 \end{frame}
 
-\begin{frame}{Growth after stabilization has remained volatile}
-  \datagraphic{fig_real_gdp_growth.pdf}
-  \begin{itemize}
-    \item Brazil combined strong expansions with three recessions after 1995; average growth weakened before the pandemic.
-    \item The macro regime reduced one source of crisis, but the convergence line still failed to trend upward.
-  \end{itemize}
-  \source{BCB SGS 7326, based on IBGE National Accounts. Annual real GDP growth; 2025 is the latest observation. Hatched bars mark contractions.}
-\end{frame}
-
 \begin{frame}{Six moments place stabilization in a longer history}
   \begin{center}
   \resizebox{.97\textwidth}{!}{%
@@ -339,6 +394,35 @@
   \begin{itemize}
     \item Stabilization is one turn in a longer institutional history that still shapes Brazil's constraints and capabilities.
   \end{itemize}
+\end{frame}
+
+\begin{frame}{The exchange rate absorbs shocks and changes domestic prices}
+  \begin{columns}[T,onlytextwidth]
+    \column{.31\textwidth}
+      \begin{block}{Why it is useful}
+        A floating currency changes relative prices when commodity prices, foreign interest rates, or capital flows move.
+      \end{block}
+    \column{.31\textwidth}
+      \begin{block}{Why it is volatile}
+        The real reacts quickly to the global dollar, interest differentials, risk, fiscal news, and trade flows.
+      \end{block}
+    \column{.31\textwidth}
+      \begin{exampleblock}{Why it matters}
+        It affects imported inflation, export margins, dollar debts, financial conditions, and the allocation of production.
+      \end{exampleblock}
+  \end{columns}
+  \vspace{.45cm}
+  \question{The exchange rate is both a shock absorber and a channel through which shocks reach the economy.}
+  \source{BCB, exchange-rate policy and monetary-policy transmission channels.}
+\end{frame}
+
+\begin{frame}{Growth after stabilization has remained volatile}
+  \datagraphic{fig_real_gdp_growth.pdf}
+  \begin{itemize}
+    \item Brazil combined strong expansions with three recessions after 1995; average growth weakened before the pandemic.
+    \item The macro regime reduced one source of crisis, but the convergence line still failed to trend upward.
+  \end{itemize}
+  \source{BCB SGS 7326, based on IBGE National Accounts. Annual real GDP growth; 2025 is the latest observation. Hatched bars mark contractions.}
 \end{frame}
 
 \begin{frame}{Brazil's fiscal problem is about composition and credibility}
@@ -406,6 +490,265 @@
   \source{Full macro scorecard table in the appendix.}
 \end{frame}
 
+\subsectionframe{Historical formation}{Slavery, urbanization, racial segregation, and the natural-resource base}
+
+\begin{frame}{Slavery shaped the initial distribution of assets and opportunity}
+  \begin{columns}[T,onlytextwidth]
+    \column{.31\textwidth}
+      \begin{block}{About 4 million}
+        Africans were forced to Brazil between the sixteenth and mid-nineteenth centuries.
+      \end{block}
+    \column{.31\textwidth}
+      \begin{block}{15.2\% in 1872}
+        The first national census counted 1.51 million enslaved people.
+      \end{block}
+    \column{.31\textwidth}
+      \begin{exampleblock}{1888}
+        Brazil was the last country in the Americas to abolish slavery.
+      \end{exampleblock}
+  \end{columns}
+  \vspace{.45cm}
+  \begin{itemize}
+    \item The two-article Lei Aurea ended legal slavery but set no path for land, work, or education.
+  \end{itemize}
+  \source{IBGE, \textit{Brazil: 500 Years of Settlement} and 1872 Census; Federal Senate, Law 3,353/1888.}
+\end{frame}
+
+\begin{frame}{Brazil became an urban country in one generation}
+  \begin{columns}[T,onlytextwidth]
+    \column{.31\textwidth}
+      \begin{center}
+        {\fontsize{32}{36}\selectfont\color{DeepNavy}\textbf{36.2\%}}\\[-.05cm]
+        \muted{urban population, 1950}
+      \end{center}
+    \column{.31\textwidth}
+      \begin{center}
+        {\fontsize{32}{36}\selectfont\color{BrazilGreen}\textbf{55.9\%}}\\[-.05cm]
+        \muted{urban population, 1970}
+      \end{center}
+    \column{.31\textwidth}
+      \begin{center}
+        {\fontsize{32}{36}\selectfont\color{DeepNavy}\textbf{87.4\%}}\\[-.05cm]
+        \muted{urban population, 2022}
+      \end{center}
+  \end{columns}
+  \vspace{.55cm}
+  \begin{itemize}
+    \item Industrialization and rural migration moved the development problem toward cities within a few decades.
+    \item Housing, transport, sanitation, schools, and municipal capacity had to expand at the same speed.
+  \end{itemize}
+  \source{IBGE, Demographic Censuses 1950, 1970, and 2022. Urban shares use the official legal classification.}
+\end{frame}
+
+\begin{frame}{Urban growth outpaced formal housing and infrastructure}
+  \begin{columns}[T,onlytextwidth]
+    \column{.31\textwidth}
+      \begin{center}
+        {\fontsize{32}{36}\selectfont\color{BrazilGreen}\textbf{16.4m}}\\[-.05cm]
+        \muted{residents}
+      \end{center}
+    \column{.31\textwidth}
+      \begin{center}
+        {\fontsize{32}{36}\selectfont\color{DeepNavy}\textbf{8.1\%}}\\[-.05cm]
+        \muted{of Brazil's population}
+      \end{center}
+    \column{.31\textwidth}
+      \begin{center}
+        {\fontsize{32}{36}\selectfont\color{Brick}\textbf{12,348}}\\[-.05cm]
+        \muted{favelas and urban communities}
+      \end{center}
+  \end{columns}
+  \vspace{.5cm}
+  \begin{itemize}
+    \item Informal settlements were a household response to scarce serviced land and insufficient housing policy.
+    \item The result is not only a housing deficit: tenure, drainage, transport, public space, and service delivery interact.
+  \end{itemize}
+  \source{IBGE, 2022 Census, Favelas and Urban Communities. Revised universe results: 16,390,790 residents.}
+\end{frame}
+
+\begin{frame}{Sewer networks expanded, but access still divides cities}
+  \begin{columns}[T,onlytextwidth]
+    \column{.31\textwidth}
+      \begin{block}{2000}
+        \centering
+        {\fontsize{28}{32}\selectfont\color{DeepNavy}\textbf{44.4\%}}\\
+        connected to a sewer network
+      \end{block}
+    \column{.31\textwidth}
+      \begin{block}{2022}
+        \centering
+        {\fontsize{28}{32}\selectfont\color{BrazilGreen}\textbf{62.5\%}}\\
+        connected to a sewer network
+      \end{block}
+    \column{.31\textwidth}
+      \begin{exampleblock}{Regional range}
+        \centering
+        {\fontsize{23}{27}\selectfont\color{Brick}\textbf{22.8--86.1\%}}\\
+        North to Southeast, 2022
+      \end{exampleblock}
+  \end{columns}
+  \vspace{.35cm}
+  \question{Urbanization creates density. Infrastructure determines whether density becomes productivity or exposure to risk.}
+  \source{IBGE, 2022 Census, Household Characteristics. Network or rainwater sewer and septic tank connected to the network.}
+\end{frame}
+
+\begin{frame}{Where people live determines which opportunities they can reach}
+  \begin{columns}[T,onlytextwidth]
+    \column{.31\textwidth}
+      \begin{block}{56.8\%}
+        \centering
+        took 6--30 minutes to reach work
+      \end{block}
+    \column{.31\textwidth}
+      \begin{block}{10.5\%}
+        \centering
+        took more than one and up to two hours
+      \end{block}
+    \column{.31\textwidth}
+      \begin{exampleblock}{1.8\%}
+        \centering
+        took more than two hours --- about 1.3 million workers
+      \end{exampleblock}
+  \end{columns}
+  \vspace{.45cm}
+  \begin{itemize}
+    \item Trips above two hours reached 1.4\% among white workers, 2.5\% among Black workers, and 2.0\% among brown workers.
+  \end{itemize}
+  \question{Segregation is economic: it changes job matching, school choice, time use, and firms' access to workers.}
+  \source{IBGE, 2022 Census, preliminary sample results on commuting to work.}
+\end{frame}
+
+\begin{frame}{Race and territory overlap inside Brazilian cities}
+  \begin{columns}[T,onlytextwidth]
+    \column{.47\textwidth}
+      \begin{block}{Brazil overall}
+        \centering
+        {\fontsize{28}{32}\selectfont\color{DeepNavy}\textbf{55.5\%}}\\
+        Black or brown
+      \end{block}
+    \column{.47\textwidth}
+      \begin{exampleblock}{Favelas and urban communities}
+        \centering
+        {\fontsize{28}{32}\selectfont\color{Brick}\textbf{72.9\%}}\\
+        Black or brown
+      \end{exampleblock}
+  \end{columns}
+  \vspace{.45cm}
+  \begin{itemize}
+    \item Black Brazilians were 10.2\% of the population but 16.1\% of favela residents; brown Brazilians were 45.3\% and 56.8\%, respectively.
+    \item Spatial segregation concentrates exposure to weak infrastructure and raises the cost of reaching opportunity.
+  \end{itemize}
+  \source{IBGE, 2022 Census, Favelas and Urban Communities, Table 9884.}
+\end{frame}
+
+\begin{frame}{Racial gaps persist in skills, earnings, and basic services}
+  \begin{columns}[T,onlytextwidth]
+    \column{.31\textwidth}
+      \begin{block}{Illiteracy, 2022}
+        \centering
+        White: \textbf{4.3\%}\\
+        Black: \textbf{10.1\%}\\
+        Brown: \textbf{8.8\%}
+      \end{block}
+    \column{.31\textwidth}
+      \begin{block}{Hourly earnings, 2024}
+        \centering
+        White: \textbf{R\$24.60}\\
+        Black or brown: \textbf{R\$15.00}
+      \end{block}
+    \column{.31\textwidth}
+      \begin{exampleblock}{Adequate sewage, 2022}
+        \centering
+        White: \textbf{83.5\%}\\
+        Black: \textbf{75.0\%}\\
+        Brown: \textbf{68.9\%}
+      \end{exampleblock}
+  \end{columns}
+  \vspace{.4cm}
+  \begin{itemize}
+    \item Territory, education, occupation, informality, networks, and discrimination reinforce one another over the life cycle.
+  \end{itemize}
+  \source{IBGE, 2022 Census, Literacy and Household Characteristics; Social Indicators Synthesis 2025, PNAD Continua 2024.}
+\end{frame}
+
+\begin{frame}{Half of Brazil's total energy supply is renewable}
+  \begin{columns}[T,onlytextwidth]
+    \column{.31\textwidth}
+      \begin{center}
+        {\fontsize{32}{36}\selectfont\color{BrazilGreen}\textbf{50.0\%}}\\[-.05cm]
+        \muted{renewables in total energy supply}
+      \end{center}
+    \column{.31\textwidth}
+      \begin{center}
+        {\fontsize{32}{36}\selectfont\color{DeepNavy}\textbf{322.0}}\\[-.05cm]
+        \muted{million tonnes of oil equivalent}
+      \end{center}
+    \column{.31\textwidth}
+      \begin{center}
+        {\fontsize{32}{36}\selectfont\color{WarmGold}\textbf{+2.4\%}}\\[-.05cm]
+        \muted{energy supply growth in 2024}
+      \end{center}
+  \end{columns}
+  \vspace{.5cm}
+  \begin{itemize}
+    \item Hydropower and sugarcane biomass created the base; wind, solar, black liquor, and biodiesel raised the renewable share.
+    \item Petroleum and derivatives still supplied 109.6 million tonnes of oil equivalent, so transport and heat remain central.
+  \end{itemize}
+  \source{EPE, Brazilian Energy Balance 2025, base year 2024.}
+\end{frame}
+
+\begin{frame}{Electricity is cleaner --- and wind and solar are diversifying it}
+  \begin{columns}[T,onlytextwidth]
+    \column{.31\textwidth}
+      \begin{center}
+        {\fontsize{32}{36}\selectfont\color{BrazilGreen}\textbf{88.2\%}}\\[-.05cm]
+        \muted{renewable electricity supply}
+      \end{center}
+    \column{.31\textwidth}
+      \begin{center}
+        {\fontsize{32}{36}\selectfont\color{DeepNavy}\textbf{23.7\%}}\\[-.05cm]
+        \muted{wind and solar generation}
+      \end{center}
+    \column{.31\textwidth}
+      \begin{center}
+        {\fontsize{30}{34}\selectfont\color{WarmGold}\textbf{59.9}}\\[-.05cm]
+        \muted{kg CO$_2$e per MWh}
+      \end{center}
+  \end{columns}
+  \vspace{.5cm}
+  \begin{itemize}
+    \item Hydropower generated 421.8 TWh in 2024; wind generated 107.7 TWh and solar 70.7 TWh.
+    \item A diversified clean grid can support low-carbon industry, but it requires transmission, storage, and predictable licensing.
+  \end{itemize}
+  \source{EPE, Brazilian Energy Balance 2025, base year 2024.}
+\end{frame}
+
+\begin{frame}{Mineral wealth is large --- and highly concentrated}
+  \begin{columns}[T,onlytextwidth]
+    \column{.31\textwidth}
+      \begin{center}
+        {\fontsize{24}{28}\selectfont\color{DeepNavy}\textbf{R\$220.5bn}}\\[-.05cm]
+        \muted{metallic minerals and graphite}
+      \end{center}
+    \column{.31\textwidth}
+      \begin{center}
+        {\fontsize{30}{34}\selectfont\color{BrazilGreen}\textbf{R\$159bn}}\\[-.05cm]
+        \muted{iron ore alone}
+      \end{center}
+    \column{.31\textwidth}
+      \begin{center}
+        {\fontsize{28}{32}\selectfont\color{WarmGold}\textbf{US\$42bn}}\\[-.05cm]
+        \muted{trade surplus in 15 minerals}
+      \end{center}
+  \end{columns}
+  \vspace{.5cm}
+  \begin{itemize}
+    \item Iron ore accounted for 72\% of the measured production value; Minas Gerais and Par\'a produced 96.7\% of beneficiated iron ore.
+  \end{itemize}
+  \question{Natural resources create rents and exports. Infrastructure, suppliers, skills, safeguards, and fiscal rules turn them into development.}
+  \source{ANM, Brazilian Mineral Yearbook 2025 and Mineral Summary 2025, data for 2024.}
+\end{frame}
+
 \begin{frame}[plain]
   \begin{tikzpicture}[remember picture,overlay]
     \fill[WarmGray] (current page.south west) rectangle (current page.north east);
@@ -419,7 +762,7 @@
 % =============================================================================
 % Part I - Brazil today
 % =============================================================================
-\sectionframe{Part I -- Brazil today}{Institutions, inequality, production, and state capacity}
+\subsectionframe{Brazil today}{Institutions, inequality, production, and state capacity}
 
 \begin{frame}{Stability raises the return to investment; it does not guarantee it}
   \begin{center}

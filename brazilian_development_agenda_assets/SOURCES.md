@@ -5,6 +5,8 @@ Data were retrieved on 2026-07-21. Raw API responses, after date and numeric par
 | Figure | Source |
 |---|---|
 | Income convergence | World Bank, WDI indicator NY.GDP.PCAP.KD (GDP per capita, constant 2015 US$); Brazil as a share of the United States |
+| Brazil-Europe scale overlay | Image supplied in the lecture revision document; territorial area from IBGE, Territorial Areas 2025 |
+| National scale and inequality | IBGE 2024 Population Estimates and PNAD Continuous 2024; World Bank WDI 2024 GDP |
 | IPCA, 12 months | BCB SGS 433; monthly IPCA variation, compounded over 12 months |
 | IPCA before and after the Real | BCB SGS 433; separate vertical scales for the pre- and post-Real periods |
 | BRL per US dollar | BCB SGS 3692; selling rate at year-end |
